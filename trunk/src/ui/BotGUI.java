@@ -51,7 +51,6 @@ public class BotGUI extends javax.swing.JFrame {
 				{
 					chatTextArea = new JTextArea();
 					jScrollPane1.setViewportView(chatTextArea);
-					chatTextArea.setPreferredSize(new java.awt.Dimension(492, 285));
 				}
 			}
 			{
@@ -77,19 +76,19 @@ public class BotGUI extends javax.swing.JFrame {
 					    .addGap(0, 32, Short.MAX_VALUE)));
 			}
 			thisLayout.setVerticalGroup(thisLayout.createSequentialGroup()
-				.addContainerGap(113, 113)
-				.addComponent(jScrollPane1, 0, 288, Short.MAX_VALUE)
-				.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+				.addContainerGap(200, Short.MAX_VALUE)
+				.addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 308, GroupLayout.PREFERRED_SIZE)
+				.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED, 1, GroupLayout.PREFERRED_SIZE)
 				.addComponent(jPanel1, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)
-				.addGap(7));
+				.addContainerGap());
 			thisLayout.setHorizontalGroup(thisLayout.createSequentialGroup()
 				.addContainerGap()
 				.addGroup(thisLayout.createParallelGroup()
-				    .addComponent(jScrollPane1, GroupLayout.Alignment.LEADING, 0, 500, Short.MAX_VALUE)
-				    .addComponent(jPanel1, GroupLayout.Alignment.LEADING, 0, 500, Short.MAX_VALUE))
+				    .addComponent(jScrollPane1, GroupLayout.Alignment.LEADING, 0, 540, Short.MAX_VALUE)
+				    .addComponent(jPanel1, GroupLayout.Alignment.LEADING, 0, 541, Short.MAX_VALUE))
 				.addContainerGap());
 			pack();
-			this.setSize(540, 513);
+			this.setSize(581, 628);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

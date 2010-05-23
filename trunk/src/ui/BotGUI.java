@@ -1,19 +1,13 @@
 package ui;
-import java.awt.BorderLayout;
-import java.awt.GridLayout;
-
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JSplitPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle;
-
 import javax.swing.WindowConstants;
-import javax.swing.SwingUtilities;
 
 
 /**
@@ -29,9 +23,12 @@ import javax.swing.SwingUtilities;
 * LEGALLY FOR ANY CORPORATE OR COMMERCIAL PURPOSE.
 */
 public class BotGUI extends javax.swing.JFrame {
-	private JPanel messagePanel;
-	private JScrollPane jScrollPane1;
-	private JPanel jPanel1;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JScrollPane chatScrollPane;
+	private JPanel inputPanel;
 	private JTextField inputTextField;
 	private JTextArea chatTextArea;
 	private JButton inputButton;
@@ -47,16 +44,16 @@ public class BotGUI extends javax.swing.JFrame {
 			getContentPane().setLayout(thisLayout);
 			setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 			{
-				jScrollPane1 = new JScrollPane();
+				chatScrollPane = new JScrollPane();
 				{
 					chatTextArea = new JTextArea();
-					jScrollPane1.setViewportView(chatTextArea);
+					chatScrollPane.setViewportView(chatTextArea);
 				}
 			}
 			{
-				jPanel1 = new JPanel();
-				GroupLayout jPanel1Layout = new GroupLayout((JComponent)jPanel1);
-				jPanel1.setLayout(jPanel1Layout);
+				inputPanel = new JPanel();
+				GroupLayout jPanel1Layout = new GroupLayout((JComponent)inputPanel);
+				inputPanel.setLayout(jPanel1Layout);
 				{
 					inputTextField = new JTextField();
 				}
@@ -77,15 +74,15 @@ public class BotGUI extends javax.swing.JFrame {
 			}
 			thisLayout.setVerticalGroup(thisLayout.createSequentialGroup()
 				.addContainerGap(200, Short.MAX_VALUE)
-				.addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 308, GroupLayout.PREFERRED_SIZE)
+				.addComponent(chatScrollPane, GroupLayout.PREFERRED_SIZE, 308, GroupLayout.PREFERRED_SIZE)
 				.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED, 1, GroupLayout.PREFERRED_SIZE)
-				.addComponent(jPanel1, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)
+				.addComponent(inputPanel, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)
 				.addContainerGap());
 			thisLayout.setHorizontalGroup(thisLayout.createSequentialGroup()
 				.addContainerGap()
 				.addGroup(thisLayout.createParallelGroup()
-				    .addComponent(jScrollPane1, GroupLayout.Alignment.LEADING, 0, 540, Short.MAX_VALUE)
-				    .addComponent(jPanel1, GroupLayout.Alignment.LEADING, 0, 541, Short.MAX_VALUE))
+				    .addComponent(chatScrollPane, GroupLayout.Alignment.LEADING, 0, 540, Short.MAX_VALUE)
+				    .addComponent(inputPanel, GroupLayout.Alignment.LEADING, 0, 541, Short.MAX_VALUE))
 				.addContainerGap());
 			pack();
 			this.setSize(581, 628);

@@ -1,4 +1,6 @@
 package ui;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -66,6 +68,11 @@ public class BotGUI extends javax.swing.JFrame {
 				{
 					inputButton = new JButton();
 					inputButton.setText("Trimite");
+					inputButton.addActionListener(new ActionListener() {
+						public void actionPerformed(ActionEvent evt) {
+							inputButtonActionPerformed(evt);
+						}
+					});
 				}
 				jPanel1Layout.setHorizontalGroup(jPanel1Layout.createSequentialGroup()
 					.addComponent(inputTextField, 0, 418, Short.MAX_VALUE)
@@ -115,16 +122,6 @@ public class BotGUI extends javax.swing.JFrame {
 		return null;
 	}
 	
-	private void buttonInputButtonActionPerformed(java.awt.event.ActionEvent evt){
-		String text = inputTextField.getText();
-        chatTextArea.append(text + newline);
-        inputTextField.selectAll();
-
-        //Make sure the new text is visible, even if there
-        //was a selection in the text area.
-        chatTextArea.setCaretPosition(chatTextArea.getDocument().getLength());
-		
-	}
 	
     public void inputTextFieldactionPerformed(java.awt.event.ActionEvent evt) {
         String text = inputTextField.getText();
@@ -135,6 +132,15 @@ public class BotGUI extends javax.swing.JFrame {
         //was a selection in the text area.
         chatTextArea.setCaretPosition(chatTextArea.getDocument().getLength());
     }
+    
+    private void inputButtonActionPerformed(ActionEvent evt) {
+    	String text = inputTextField.getText();
+        chatTextArea.append(text + newline);
+        inputTextField.selectAll();
 
-	
+        //Make sure the new text is visible, even if there
+        //was a selection in the text area.
+        chatTextArea.setCaretPosition(chatTextArea.getDocument().getLength());
+    }
+
 }

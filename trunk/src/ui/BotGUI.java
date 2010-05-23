@@ -37,6 +37,8 @@ public class BotGUI extends javax.swing.JFrame {
 	private JButton inputButton;
 
 	private final static String newline = "\n";
+	private final static String lineStart = ">>> ";
+	private final static String botLine = "BOT: ";
 
 	public BotGUI() {
 		super();
@@ -136,7 +138,7 @@ public class BotGUI extends javax.swing.JFrame {
 	public void inputTextFieldactionPerformed(java.awt.event.ActionEvent evt) {
 		String text = inputTextField.getText();
 		if (!text.isEmpty()) {
-			chatTextArea.append(text + newline);
+			chatTextArea.append(lineStart + text + newline);
 			inputTextField.selectAll();
 
 			// Make sure the new text is visible, even if there
@@ -149,7 +151,7 @@ public class BotGUI extends javax.swing.JFrame {
 	private void inputButtonActionPerformed(ActionEvent evt) {
 		String text = inputTextField.getText();
 		if (!text.isEmpty()) {
-			chatTextArea.append(text + newline);
+			chatTextArea.append(lineStart + text + newline);
 			inputTextField.selectAll();
 
 			// Make sure the new text is visible, even if there
@@ -161,7 +163,7 @@ public class BotGUI extends javax.swing.JFrame {
 	
 	
 	public void insertBotResponse(String response){
-		chatTextArea.append(response + newline);
+		chatTextArea.append(botLine + response + newline);
 		chatTextArea.setCaretPosition(chatTextArea.getDocument()
 				.getLength());
 	}

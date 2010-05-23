@@ -1,5 +1,6 @@
 package ui;
 import java.awt.BorderLayout;
+import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -27,6 +28,7 @@ public class BotGUI extends javax.swing.JFrame {
 	private JPanel chatPanel;
 	private JTextArea chatTextArea;
 	private JTextField inputTextField;
+	private JButton inputButton;
 
 	public BotGUI() {
 		super();
@@ -50,6 +52,13 @@ public class BotGUI extends javax.swing.JFrame {
 					inputTextField = new JTextField();
 					chatPanel.add(inputTextField);
 					inputTextField.setBounds(12, 215, 309, 40);
+				}
+				{
+					inputButton = new JButton();
+					inputButton.setText("Trimite");
+					chatPanel.add(inputButton, BorderLayout.EAST);
+					inputButton.setBounds(311, 215, 341, 200);
+					inputButton.setPreferredSize(new java.awt.Dimension(75, 260));
 				}
 			}
 			pack();

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping>
+  <class name="model.Word" table="Word">
+	  <id name="id" type="int" column="id" >
+	   	<generator class="increment"/>
+	  </id>
+	  
+	  <property name="flag">
+		 <column name="flag" />
+	  </property>
+	  
+	 <property name="content">
+		 <column name="content" />
+	  </property>
+	  
+   </class>
+
+</hibernate-mapping>

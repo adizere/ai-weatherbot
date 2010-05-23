@@ -1,7 +1,9 @@
 package ui;
 import javax.swing.GroupLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComponent;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -31,6 +33,7 @@ public class BotGUI extends javax.swing.JFrame {
 	private JPanel inputPanel;
 	private JTextField inputTextField;
 	private JTextArea chatTextArea;
+	private JLabel imageLabel;
 	private JButton inputButton;
 
 	public BotGUI() {
@@ -48,6 +51,7 @@ public class BotGUI extends javax.swing.JFrame {
 				{
 					chatTextArea = new JTextArea();
 					chatScrollPane.setViewportView(chatTextArea);
+					chatTextArea.setPreferredSize(new java.awt.Dimension(538, 303));
 				}
 			}
 			{
@@ -72,23 +76,42 @@ public class BotGUI extends javax.swing.JFrame {
 					    .addComponent(inputButton, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)
 					    .addGap(0, 32, Short.MAX_VALUE)));
 			}
+			{
+				imageLabel = new JLabel();
+				imageLabel.setIcon(new ImageIcon(getClass().getClassLoader().getResource("resources/botImage.jpg")));
+				//imageLabel.setIcon(arg0);
+			}
 			thisLayout.setVerticalGroup(thisLayout.createSequentialGroup()
-				.addContainerGap(200, Short.MAX_VALUE)
-				.addComponent(chatScrollPane, GroupLayout.PREFERRED_SIZE, 308, GroupLayout.PREFERRED_SIZE)
-				.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED, 1, GroupLayout.PREFERRED_SIZE)
+				.addContainerGap()
+				.addComponent(imageLabel, 0, 180, Short.MAX_VALUE)
+				.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+				.addComponent(chatScrollPane, 0, 313, Short.MAX_VALUE)
+				.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
 				.addComponent(inputPanel, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)
 				.addContainerGap());
 			thisLayout.setHorizontalGroup(thisLayout.createSequentialGroup()
 				.addContainerGap()
 				.addGroup(thisLayout.createParallelGroup()
-				    .addComponent(chatScrollPane, GroupLayout.Alignment.LEADING, 0, 540, Short.MAX_VALUE)
-				    .addComponent(inputPanel, GroupLayout.Alignment.LEADING, 0, 541, Short.MAX_VALUE))
+				    .addComponent(chatScrollPane, GroupLayout.Alignment.LEADING, 0, 541, Short.MAX_VALUE)
+				    .addComponent(inputPanel, GroupLayout.Alignment.LEADING, 0, 541, Short.MAX_VALUE)
+				    .addComponent(imageLabel, GroupLayout.Alignment.LEADING, 0, 541, Short.MAX_VALUE))
 				.addContainerGap());
 			pack();
-			this.setSize(581, 628);
+			this.setSize(581, 634);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
+	
+	public String getInputTextField(){
+		try {
+			return inputTextField.getText();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
 
+	
 }

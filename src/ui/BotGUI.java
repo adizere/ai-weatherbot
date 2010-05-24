@@ -50,7 +50,7 @@ public class BotGUI extends javax.swing.JFrame {
 			GroupLayout thisLayout = new GroupLayout(
 					(JComponent) getContentPane());
 			getContentPane().setLayout(thisLayout);
-			setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+			setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); 
 			{
 				chatScrollPane = new JScrollPane();
 				{

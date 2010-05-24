@@ -68,6 +68,11 @@ public class BotGUI extends javax.swing.JFrame {
 				inputPanel.setLayout(jPanel1Layout);
 				{
 					inputTextField = new JTextField();
+					inputTextField.addActionListener(new ActionListener() {
+						public void actionPerformed(ActionEvent evt) {
+							inputTextFieldactionPerformed(evt);
+						}
+					});
 				}
 				{
 					inputButton = new JButton();
@@ -145,7 +150,7 @@ public class BotGUI extends javax.swing.JFrame {
 		String text = inputTextField.getText();
 		if (!text.isEmpty()) {
 			chatTextArea.append(lineStart + text + newline);
-			inputTextField.selectAll();
+			inputTextField.setText(null);
 
 			// Make sure the new text is visible, even if there
 			// was a selection in the text area.

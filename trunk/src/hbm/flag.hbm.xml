@@ -13,6 +13,11 @@
 		 <column name="value" />
 	  </property>
 	  
+	  <set name="associatedWords" table="WordFlag" cascade="all">
+            <key column="flagKey"/>
+            <many-to-many class="Word"/>
+      </set>
+	  
    </class>
 
 </hibernate-mapping>

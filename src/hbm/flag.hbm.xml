@@ -5,16 +5,12 @@
     
 <hibernate-mapping>
   <class name="model.Flag" table="Flag">
-	  <id name="ID" type="int" column="ID" >
+	  <id name="key" type="long" column="key" >
 	   	<generator class="increment"/>
 	  </id>
 	  
 	  <property name="value">
 		 <column name="value" />
-	  </property>
-	  
-	  <property name="usage">
-		 <column name="usage" />
 	  </property>
 	  
    </class>

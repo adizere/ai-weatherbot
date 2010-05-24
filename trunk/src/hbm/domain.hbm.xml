@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping>
+  <class name="model.Domain" table="Domain">
+	  <id name="id" type="long" column="id" >
+	   	<generator class="native"/>
+	  </id>
+	  
+	  <property name="lowerBound">
+		 <column name="lowerBound" />
+	  </property>
+	  
+	  <property name="upperBound">
+		 <column name="upperBound" />
+	  </property>
+	  
+   </class>
+
+</hibernate-mapping>

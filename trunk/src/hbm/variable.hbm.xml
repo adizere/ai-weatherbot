@@ -4,15 +4,17 @@
     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
     
 <hibernate-mapping>
-  <class name="model.Word" table="Word">
-	  <id name="key" type="long" column="key" >
+  <class name="model.Variable" table="Variable">
+	  <id name="id" type="long" column="id" >
 	   	<generator class="increment"/>
 	  </id>
 	  
-	  <property name="value">
-		 <column name="value" />
+	  <property name="name">
+		 <column name="name" />
 	  </property>
-	  	  
+	  
+	  <many-to-one name="domain" column="domainID" class="Domain"/>
+	  
    </class>
 
 </hibernate-mapping>

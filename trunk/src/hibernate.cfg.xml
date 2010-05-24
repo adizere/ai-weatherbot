@@ -16,5 +16,7 @@
       <!-- Mapping files -->
       <mapping resource="hbm/word.hbm.xml"/>
       <mapping resource="hbm/flag.hbm.xml"/>
+      <mapping resource="hbm/domain.hbm.xml"/>
+      <mapping resource="hbm/variable.hbm.xml"/>
 </session-factory>
 </hibernate-configuration>

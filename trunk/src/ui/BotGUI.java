@@ -58,6 +58,7 @@ public class BotGUI extends javax.swing.JFrame {
 					chatScrollPane.setViewportView(chatTextArea);
 					chatTextArea.setPreferredSize(new java.awt.Dimension(538,
 							303));
+					chatTextArea.setEditable(false);
 				}
 			}
 			{
@@ -77,24 +78,16 @@ public class BotGUI extends javax.swing.JFrame {
 						}
 					});
 				}
-				jPanel1Layout.setHorizontalGroup(jPanel1Layout
-						.createSequentialGroup().addComponent(inputTextField,
-								0, 418, Short.MAX_VALUE).addPreferredGap(
-								LayoutStyle.ComponentPlacement.UNRELATED)
-						.addComponent(inputButton, GroupLayout.PREFERRED_SIZE,
-								59, GroupLayout.PREFERRED_SIZE)
-						.addContainerGap());
-				jPanel1Layout.setVerticalGroup(jPanel1Layout
-						.createParallelGroup().addComponent(inputTextField,
-								GroupLayout.Alignment.LEADING, 0, 55,
-								Short.MAX_VALUE).addGroup(
-								GroupLayout.Alignment.LEADING,
-								jPanel1Layout.createSequentialGroup()
-										.addComponent(inputButton,
-												GroupLayout.PREFERRED_SIZE,
-												GroupLayout.PREFERRED_SIZE,
-												GroupLayout.PREFERRED_SIZE)
-										.addGap(0, 32, Short.MAX_VALUE)));
+				jPanel1Layout.setHorizontalGroup(jPanel1Layout.createSequentialGroup()
+					.addComponent(inputTextField, 0, 443, Short.MAX_VALUE)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+					.addComponent(inputButton, 0, 75, Short.MAX_VALUE)
+					.addContainerGap());
+				jPanel1Layout.setVerticalGroup(jPanel1Layout.createParallelGroup()
+					.addComponent(inputTextField, GroupLayout.Alignment.LEADING, 0, 55, Short.MAX_VALUE)
+					.addGroup(GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+					    .addComponent(inputButton, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
+					    .addGap(0, 32, Short.MAX_VALUE)));
 			}
 			{
 				imageLabel = new JLabel();

@@ -1,7 +1,12 @@
 package ui;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.font.TextAttribute;
+import java.text.AttributedString;
+
 import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -136,8 +141,14 @@ public class BotGUI extends javax.swing.JFrame {
 	public void inputTextFieldactionPerformed(java.awt.event.ActionEvent evt) {
 		String text = inputTextField.getText();
 		if (!text.isEmpty()) {
+			/*
+			Font userFont = new Font("Tahoma", Font.PLAIN, 16);
+			AttributedString attrString = new AttributedString(text);
+			attrString.addAttribute(TextAttribute.FONT, userFont);
+			attrString.addAttribute(TextAttribute.FOREGROUND, Color.BLUE);
+			*/
 			chatTextArea.append(lineStart + text + newline);
-			inputTextField.selectAll();
+			inputTextField.setText(null);
 
 			// Make sure the new text is visible, even if there
 			// was a selection in the text area.
@@ -149,6 +160,12 @@ public class BotGUI extends javax.swing.JFrame {
 	private void inputButtonActionPerformed(ActionEvent evt) {
 		String text = inputTextField.getText();
 		if (!text.isEmpty()) {
+			/*
+			Font userFont = new Font("Tahoma", Font.PLAIN, 16);
+			AttributedString attrString = new AttributedString(text);
+			attrString.addAttribute(TextAttribute.FONT, userFont);
+			attrString.addAttribute(TextAttribute.FOREGROUND, Color.BLUE);
+			*/
 			chatTextArea.append(lineStart + text + newline);
 			inputTextField.setText(null);
 
@@ -161,6 +178,12 @@ public class BotGUI extends javax.swing.JFrame {
 	
 	
 	public void insertBotResponse(String response){
+		/*
+		Font botFont = new Font("Lucida Console", Font.BOLD, 14);
+		AttributedString attrString = new AttributedString(response);
+		attrString.addAttribute(TextAttribute.FONT, botFont);
+		attrString.addAttribute(TextAttribute.FOREGROUND, Color.RED);
+		*/
 		chatTextArea.append(botLine + response + newline);
 		chatTextArea.setCaretPosition(chatTextArea.getDocument()
 				.getLength());

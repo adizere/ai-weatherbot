@@ -147,13 +147,14 @@ public class BotGUI extends javax.swing.JFrame {
 			attrString.addAttribute(TextAttribute.FONT, userFont);
 			attrString.addAttribute(TextAttribute.FOREGROUND, Color.BLUE);
 			*/
-			chatTextArea.append(lineStart + text + newline);
+			chatTextArea.append(lineStart + text.trim() + newline);
 			inputTextField.setText(null);
 
 			// Make sure the new text is visible, even if there
 			// was a selection in the text area.
 			chatTextArea.setCaretPosition(chatTextArea.getDocument()
 					.getLength());
+			insertBotResponse("Fine wheather today everywhere. :)");
 		}
 	}
 
@@ -166,13 +167,14 @@ public class BotGUI extends javax.swing.JFrame {
 			attrString.addAttribute(TextAttribute.FONT, userFont);
 			attrString.addAttribute(TextAttribute.FOREGROUND, Color.BLUE);
 			*/
-			chatTextArea.append(lineStart + text + newline);
+			chatTextArea.append(lineStart + text.trim() + newline);
 			inputTextField.setText(null);
 
 			// Make sure the new text is visible, even if there
 			// was a selection in the text area.
 			chatTextArea.setCaretPosition(chatTextArea.getDocument()
 					.getLength());
+			insertBotResponse("Fine wheather today everywhere. :)");
 		}
 	}
 	
@@ -184,7 +186,7 @@ public class BotGUI extends javax.swing.JFrame {
 		attrString.addAttribute(TextAttribute.FONT, botFont);
 		attrString.addAttribute(TextAttribute.FOREGROUND, Color.RED);
 		*/
-		chatTextArea.append(botLine + response + newline);
+		chatTextArea.append(botLine + response.trim() + newline);
 		chatTextArea.setCaretPosition(chatTextArea.getDocument()
 				.getLength());
 	}

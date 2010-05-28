@@ -1,6 +1,6 @@
 package model;
 
-public class Variable {
+public class Variable implements Comparable<Variable>{
 	
 	private String name;
 	private Domain domain;
@@ -29,6 +29,12 @@ public class Variable {
 
 	public void setDomain(Domain domain) {
 		this.domain = domain;
+	}
+
+	@Override
+	public int compareTo(Variable arg0) {
+		
+		return this.getName().compareTo(arg0.getName());
 	}
 	
 }

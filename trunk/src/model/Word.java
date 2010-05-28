@@ -1,14 +1,9 @@
 package model;
 
-import java.util.HashSet;
-import java.util.Set;
-
 public class Word {
 	private long key;
 	private String value;
 	private Flag flag;
-	
-	
 	/**
 	 * @param key
 	 * @param value
@@ -18,7 +13,18 @@ public class Word {
 		this.key = key;
 		this.value = value;
 	}
-
+	/**
+	 * @param key
+	 * @param value
+	 * @param flag
+	 */
+	public Word(long key, String value, Flag flag) {
+		super();
+		this.key = key;
+		this.value = value;
+		this.flag = flag;
+	}
+	
 	public long getKey() {
 		return key;
 	}
@@ -34,13 +40,13 @@ public class Word {
 	public void setValue(String value) {
 		this.value = value;
 	}
-
+	
 	public Flag getFlag() {
 		return flag;
 	}
-
+	
 	public void setFlag(Flag flag) {
 		this.flag = flag;
 	}
-	
+		
 }

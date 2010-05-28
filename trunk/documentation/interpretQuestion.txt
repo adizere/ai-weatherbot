@@ -1,0 +1,38 @@
+
+IN ArrayList<Word> list
+
+private locatie;
+private timp;		// de tipul Calendar[2]
+private variabila-predicat;
+
+if (complement.unde)
+	locatie = *			// == oriunde
+if (complement.cum || complement.ce)
+	var-predicat = *	// == oricum, lista de intervale pentru fiecare variabila e goala	
+if (complement.cand)
+	timp = *			// == secunda zero
+	
+foreach w in list:
+	if (w.getFlag == Flag.timp){
+		
+	}
+	else if (w.getFlag == Flag.Locatie)
+		locatie = w;
+	else if (w.getFlag == Flag.Variabila)
+		variabila-predicat = w;
+	else if (w.getFlag == Flag.Predicat)
+		variabile-predicat = w;
+		
+		
+	if (locatie.empty())	// nici * nici specificata
+		cerem locatie
+	if (timp.empty())
+		punem ziua de azi: timp = "azi"
+	if (variabila-predicat.empty())
+		cerem variabila: temperatura sau vant sau acoperirea cerului? si setam variabila-predicat
+		
+		 
+ArrayList<?> locations = repoLoc.getWhereLocationIs(location)
+
+foreach l in locations do:
+	if (l.inceput

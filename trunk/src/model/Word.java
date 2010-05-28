@@ -28,6 +28,10 @@ public class Word {
 		this.flag = flag;
 	}
 	
+	public Word(Object[] obj) {
+		this(Long.parseLong(obj[0].toString()), obj[1].toString(), obj[2].toString());
+	}
+	
 	public long getId() {
 		return id;
 	}
@@ -50,6 +54,12 @@ public class Word {
 	
 	public void setFlag(String flag) {
 		this.flag = flag;
+	}
+
+	@Override
+	public String toString() {
+		return this.getId() + "; " + this.getValue() + "; " + this.flag;
 	}	
 	
+
 }

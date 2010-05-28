@@ -13,11 +13,10 @@
 		 <column name="value" />
 	  </property>
 	  	  
-	  <set name="flags" table="WordFlag" cascade="all">
-            <key column="wordKey"/>
-            <many-to-many class="Flag"/>
-      </set>
-	  
+	  <property name="flag">
+		 <column name="flag" />
+	  </property>
+
    </class>
 
 </hibernate-mapping>

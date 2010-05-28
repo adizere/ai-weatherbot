@@ -6,7 +6,7 @@ import java.util.Set;
 public class Word {
 	private long key;
 	private String value;
-	private Set<Long> flags;
+	private Flag flag;
 	
 	
 	/**
@@ -17,7 +17,6 @@ public class Word {
 		super();
 		this.key = key;
 		this.value = value;
-		this.flags = new HashSet<Long>();
 	}
 
 	public long getKey() {
@@ -35,24 +34,13 @@ public class Word {
 	public void setValue(String value) {
 		this.value = value;
 	}
-	
-	public Set<Long> getFlags() {
-		return flags;
+
+	public Flag getFlag() {
+		return flag;
+	}
+
+	public void setFlag(Flag flag) {
+		this.flag = flag;
 	}
 	
-	public void setFlags(Set<Long> flags) {
-		this.flags = flags;
-	}
-	
-	public void addFlag(Flag flag){
-		this.flags.add(flag.getKey());
-	}
-	
-	public void removeFlag(Flag flag){
-		this.flags.remove(flag.getKey());
-	}
-	
-	public boolean hasFlag(Flag flag){
-		return (this.flags.contains(flag.getKey()));
-	}
 }

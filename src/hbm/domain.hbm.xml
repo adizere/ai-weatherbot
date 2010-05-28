@@ -9,13 +9,18 @@
 	   	<generator class="native"/>
 	  </id>
 	  
-	  <property name="lowerBound">
+	  <property name="lowerBound" type="double">
 		 <column name="lowerBound" />
 	  </property>
 	  
-	  <property name="upperBound">
+	  <property name="upperBound" type="double">
 		 <column name="upperBound" />
 	  </property>
+	  
+	   <bag name="variables" inverse="true" cascade="all,delete-orphan">
+      	<key column="domainId"/>
+      	<one-to-many class="model.Variable"/>
+      </bag>
 	  
    </class>
 

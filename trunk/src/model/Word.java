@@ -1,38 +1,43 @@
 package model;
 
 public class Word {
-	private long key;
+	
+	private long id;
+	
 	private String value;
-	private Flag flag;
+	private Flag flag;	
+	
 	/**
-	 * @param key
-	 * @param value
-	 */
-	public Word(long key, String value) {
-		super();
-		this.key = key;
-		this.value = value;
-	}
-	/**
-	 * @param key
+	 * @param id
 	 * @param value
 	 * @param flag
 	 */
-	public Word(long key, String value, Flag flag) {
+	public Word(long id, String value, Flag flag) {
 		super();
-		this.key = key;
+		this.id = id;
 		this.value = value;
 		this.flag = flag;
 	}
 	
-	public long getKey() {
-		return key;
+	/**
+	 * @param id
+	 * @param value
+	 */
+	public Word(long id, String value) {
+		super();
+		this.id = id;
+		this.value = value;
+		this.flag = Flag.General;
 	}
 	
-	public void setKey(long key) {
-		this.key = key;
+	public long getId() {
+		return id;
 	}
-	
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
 	public String getValue() {
 		return value;
 	}

@@ -2,10 +2,26 @@ package model;
 
 public class Domain {
 	
+	private long id;
+	
 	private static final double EPSILON = 1e-2;
 	private double lowerBound;
 	private double upperBound;
 	
+	
+	
+	/**
+	 * @param id
+	 * @param lowerBound
+	 * @param upperBound
+	 */
+	public Domain(long id, double lowerBound, double upperBound) {
+		super();
+		this.id = id;
+		this.lowerBound = lowerBound;
+		this.upperBound = upperBound;
+	}
+
 	/**
 	 * @param lowerBound
 	 * @param upperBound
@@ -49,4 +65,14 @@ public class Domain {
 	{
 		return (a-b)>(-EPSILON );
 	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+	
+	
 }

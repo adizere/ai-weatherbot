@@ -5,20 +5,7 @@ public class Word {
 	private long id;
 	
 	private String value;
-	private Flag flag;	
-	
-	/**
-	 * @param id
-	 * @param value
-	 * @param flag
-	 */
-	public Word(long id, String value, Flag flag) {
-		super();
-		this.id = id;
-		this.value = value;
-		this.flag = flag;
-	}
-	
+	private String flag;
 	/**
 	 * @param id
 	 * @param value
@@ -27,17 +14,28 @@ public class Word {
 		super();
 		this.id = id;
 		this.value = value;
-		this.flag = Flag.General;
+	}
+	
+	/**
+	 * @param id
+	 * @param value
+	 * @param flag
+	 */
+	public Word(long id, String value, String flag) {
+		super();
+		this.id = id;
+		this.value = value;
+		this.flag = flag;
 	}
 	
 	public long getId() {
 		return id;
 	}
-
+	
 	public void setId(long id) {
 		this.id = id;
 	}
-
+	
 	public String getValue() {
 		return value;
 	}
@@ -46,12 +44,12 @@ public class Word {
 		this.value = value;
 	}
 	
-	public Flag getFlag() {
+	public String getFlag() {
 		return flag;
 	}
 	
-	public void setFlag(Flag flag) {
+	public void setFlag(String flag) {
 		this.flag = flag;
-	}
-		
+	}	
+	
 }

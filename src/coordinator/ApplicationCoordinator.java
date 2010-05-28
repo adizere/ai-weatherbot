@@ -1,6 +1,13 @@
 package coordinator;
 
+import model.Flag;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
 import ui.BotGUI;
+
+
 
 public class ApplicationCoordinator {
 

@@ -5,7 +5,7 @@
     
 <hibernate-mapping>
   <class name="model.Word" table="Word">
-	  <id name="key" type="long" column="key" >
+	  <id name="id" type="long" column="id" >
 	   	<generator class="increment"/>
 	  </id>
 	  

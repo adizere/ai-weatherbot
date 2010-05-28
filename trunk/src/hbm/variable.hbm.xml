@@ -9,11 +9,12 @@
 	   	<generator class="increment"/>
 	  </id>
 	  
-	  <property name="name">
+	  <property name="name" type = "string"> 
 		 <column name="name" />
 	  </property>
 	  
-	  <many-to-one name="domain" column="domainID" class="Domain"/>
+	  <many-to-one name="domain" class="model.Domain" column="domainId"/>
+	  
 	  
    </class>
 

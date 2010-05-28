@@ -2,7 +2,7 @@ package model;
 
 public class Domain {
 	
-	private static final double EPSILON = 1e-4;
+	private static final double EPSILON = 1e-2;
 	private double lowerBound;
 	private double upperBound;
 	
@@ -42,11 +42,11 @@ public class Domain {
 	
 	private boolean se(double a, double b) // smaller equal
 	{
-		return (b-a)>EPSILON;
+		return (b-a)>(- EPSILON );
 	}
 	
 	private boolean ge(double a, double b) // greater equal
 	{
-		return (a-b)>EPSILON;
+		return (a-b)>(-EPSILON );
 	}
 }

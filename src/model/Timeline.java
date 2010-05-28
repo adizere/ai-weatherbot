@@ -5,8 +5,24 @@ import java.util.GregorianCalendar;
 
 public class Timeline {
 	
+	private long id;
+	
 	private Calendar begin;
 	private Calendar end;
+	
+	
+	/**
+	 * @param id
+	 * @param begin
+	 * @param end
+	 */
+	public Timeline(long id, Calendar begin, Calendar end) {
+		super();
+		this.id = id;
+		this.begin = begin;
+		this.end = end;
+	}
+	
 	/**
 	 * @param begin
 	 * @param end
@@ -41,6 +57,15 @@ public class Timeline {
 		this.end = end;
 	}
 	
+	
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
 	public boolean covers(Timeline timeline){
 		if( ( this.begin.before(timeline.getBegin()) || this.begin.equals(timeline.getBegin())) &&
 			( this.end.after(timeline.getEnd()) || this.end.equals(timeline.getEnd())) ){

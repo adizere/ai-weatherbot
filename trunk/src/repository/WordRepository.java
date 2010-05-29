@@ -12,6 +12,8 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.springframework.jdbc.object.SqlQuery;
 
+import services.StatementEvaluator;
+
 import model.Domain;
 import model.Variable;
 import model.Word;
@@ -41,9 +43,7 @@ public class WordRepository {
 				Object[] row = (Object[]) it.next();
 				list.add(new Word(row));
 			}
-			
 
-			
 		} catch (Exception e) {
 			System.out.println("Word Repository exception " + e.getMessage());
 		}
@@ -51,6 +51,19 @@ public class WordRepository {
 
 	public List<Word> getList() {
 		return this.list;
+	}
+
+	/**
+	 * @param a
+	 *            word which will be searched in the list of all words
+	 * @return the flag of the word if it was found in the list; empty string
+	 *         otherwise
+	 */
+	public String contains(String wordValue) {
+		for (int i = 0; i < list.size(); i++)
+			if (list.get(i).getValue().equals(wordValue))
+				return list.get(i).getFlag();
+		return "";
 	}
 
 }

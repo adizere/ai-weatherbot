@@ -1,6 +1,7 @@
 package services;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import model.Word;
@@ -37,5 +38,39 @@ public class StatementEvaluator {
 		}
 
 		return list;
+	}
+	
+	
+	/* vezi documentation/interpretQuestion */
+	public void interpretStatement(List<Word> words) {
+		Word locatie = new Word(0, "");
+		Word variabila = new Word(0, "");
+		Calendar timp[] = new Calendar[2];
+		
+			/* check for complements */
+		
+		for (int i = 0; i < words.size(); i++) {
+			if (words.get(i).getValue() == "unde")
+				locatie.setValue("oriunde");
+			else if (words.get(i).getValue() == "cat"
+					|| words.get(i).getValue() == "ce")
+				variabila.setValue("oricum");
+			else if (words.get(i).getValue() == "cand") {
+				timp[0].setTimeInMillis(0);
+				timp[1].setTimeInMillis(0);
+			}
+		}
+
+			/* check for flagged words */
+		for(int i=0; i<words.size(); i++){
+			if (words.get(i).getFlag() == "locatie")
+				locatie.setValue(words.get(i).getValue());
+			else if (words.get(i).getFlag() == "variabila")
+				variabila.setValue(words.get(i).getValue());
+			else if (words.get(i).getFlag() == "predicat"){
+				
+				/* transformare din predicat in variabila (eg: "noros" -> sky coverage cu Domain(50,70) */
+			}
+		}
 	}
 }

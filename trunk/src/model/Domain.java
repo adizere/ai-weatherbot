@@ -1,5 +1,8 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Domain {
 	
 	private long id;
@@ -7,9 +10,15 @@ public class Domain {
 	private static final double EPSILON = 1e-2;
 	private double lowerBound;
 	private double upperBound;
+	List variables;
 	
 	
 	
+	public Domain(){
+		id = 0;
+		lowerBound = 0;
+		upperBound = 0;
+	}
 	/**
 	 * @param id
 	 * @param lowerBound
@@ -20,6 +29,7 @@ public class Domain {
 		this.id = id;
 		this.lowerBound = lowerBound;
 		this.upperBound = upperBound;
+		variables = new ArrayList();
 	}
 
 	/**
@@ -30,6 +40,7 @@ public class Domain {
 		super();
 		this.lowerBound = lowerBound;
 		this.upperBound = upperBound;
+		variables = new ArrayList();
 	}
 
 	public double getLowerBound() {
@@ -73,6 +84,17 @@ public class Domain {
 	public void setId(long id) {
 		this.id = id;
 	}
-	
+
+	public List getVariables() {
+		return variables;
+	}
+
+	public void setVariables(List variables) {
+		this.variables = variables;
+	}
+	@Override
+	public String toString() {
+		return "#"+this.id + "<" + this.lowerBound + ", "  +this.upperBound + ">";
+	}
 	
 }

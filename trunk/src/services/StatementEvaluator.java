@@ -20,18 +20,20 @@ public class StatementEvaluator {
 	 * @return list of each word in that sentence with an flag associated
 	 * @author Adizere
 	 */
-	public List<Word> evaluateStatement(String st) {
+	public List<Word> evaluateStatement(String st) {		/* tokenize by " " and "," */
 
 		List<Word> list = new ArrayList<Word>();
 
-		String s[] = st.split(" ");
+		String s[] = st.split("[\\s,]");		
 		Word w;
 		for (int i = 0; i < s.length; i++) {
-			String flag = wr.contains(s[i]);
-			if (flag.length() <= 0)
-				flag = "General";
-			w = new Word(0, s[i], flag);
-			list.add(w);
+			if (s[i].length() > 0) {
+				String flag = wr.contains(s[i]);
+				if (flag.length() <= 0)
+					flag = "General";
+				w = new Word(0, s[i], flag);
+				list.add(w);
+			}
 		}
 
 		return list;

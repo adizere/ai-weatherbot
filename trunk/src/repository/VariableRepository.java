@@ -18,11 +18,14 @@ import model.Word;
 
 public class VariableRepository {
 
-	private List<Variable> list;
+	private List<Variable> listV;
+	private List<Domain> listD;
 	private Session session;
+	
+	
 	public VariableRepository() {
 
-		list = new ArrayList<Variable>();
+		listV = new ArrayList<Variable>();
 
 		session = null;
 		SessionFactory sessionFactory = new Configuration().configure()
@@ -31,22 +34,34 @@ public class VariableRepository {
 
 		try {
 			
-			String sql = "select {variable.*} from Variable variable";
+			
+			String sql = "select {domain.*} from Domain domain";
             
 	        SQLQuery query = session.createSQLQuery(sql);
-	        query.addEntity("variable", Variable.class);
-	        List results = query.list();
-
-			
-
+	        query.addEntity("domain", Domain.class);
+	        listD = query.list();
+	        
+	        Iterator<Domain> it = listD.iterator();
+	        while(it.hasNext()){
+	        	List<Variable> lv = it.next().getVariables();
+	        	Iterator<Variable> it2 = lv.iterator();
+	        	while(it2.hasNext()){
+	        		Variable v = it2.next();
+	        		if (v != null)
+	        			listV.add(v);
+	        	}
+	        }
 			
 		} catch (Exception e) {
-			System.out.println("Word Repository exception " + e.getMessage());
+			System.out.println("Word Repository exception: " + e.getMessage());
 		}
 	}
 
-	public List<Variable> getList() {
-		return this.list;
+	public List<Variable> getAllVariables() {
+		return this.listV;
 	}
-
+	
+	public List<Domain> getAllDomains() {
+		return this.listD;
+	}
 }

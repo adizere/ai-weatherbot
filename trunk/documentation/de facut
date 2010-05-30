@@ -1,0 +1,9 @@
+- transformare din predicat in variabila (eg: "noros" -> sky coverage cu Domain(50,70)
+
+- controller pentru UI
+				nush sigur daca asa trebe:
+		* sa primeasca propozita de la UI, sa o trimita la statementEvaluator.evaluateStatement()
+		* sa trimita list<Word> primita de evaluateStatement() lui statementEvaluator.interpretStatement() 
+		* Stringul returnat de statementEvaluator.interpretStatement() trebuie pus in UI in textArea
+						
+- repositories.. mult..

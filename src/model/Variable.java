@@ -8,6 +8,13 @@ public class Variable implements Comparable<Variable>{
 	private Domain domain;
 	
 	
+	public Variable() {
+		super();
+		id = 0;
+		name = "";
+		domain = null;
+	}
+	
 	/**
 	 * @param id
 	 * @param name
@@ -59,6 +66,11 @@ public class Variable implements Comparable<Variable>{
 	public int compareTo(Variable arg0) {
 		
 		return this.getName().compareTo(arg0.getName());
+	}
+
+	@Override
+	public String toString() {
+		return "#" + this.id + "; " + this.name + "; Domain: " + this.domain.toString();
 	}
 	
 }

@@ -19,6 +19,8 @@ import javax.swing.JTextField;
 import javax.swing.LayoutStyle;
 import javax.swing.WindowConstants;
 
+import control.UiController;
+
 /**
  * This code was edited or generated using CloudGarden's Jigloo SWT/Swing GUI
  * Builder, which is free for non-commercial use. If Jigloo is being used
@@ -40,14 +42,16 @@ public class BotGUI extends javax.swing.JFrame {
 	private JTextArea chatTextArea;
 	private JLabel imageLabel;
 	private JButton inputButton;
+	private UiController uiController;
 
 	private final static String newline = "\n";
 	private final static String lineStart = ">>> ";
 	private final static String botLine = "BOT: ";
 
-	public BotGUI() {
+	public BotGUI(UiController uiController) {
 		super();
 		initGUI();
+		this.uiController = uiController;
 	}
 
 	private void initGUI() {
@@ -130,6 +134,15 @@ public class BotGUI extends javax.swing.JFrame {
 		}
 	}
 
+	
+	public UiController getUiController() {
+		return uiController;
+	}
+
+	public void setUiController(UiController uiController) {
+		this.uiController = uiController;
+	}
+
 	public String getInputTextField() {
 		String text = inputTextField.getText();
 		if (!text.isEmpty()) {
@@ -155,7 +168,6 @@ public class BotGUI extends javax.swing.JFrame {
 			chatTextArea.setCaretPosition(chatTextArea.getDocument()
 					.getLength());
 			//insertBotResponse("Fine wheather today everywhere. :)");
-			notify();
 		}
 	}
 
@@ -176,7 +188,6 @@ public class BotGUI extends javax.swing.JFrame {
 			chatTextArea.setCaretPosition(chatTextArea.getDocument()
 					.getLength());
 			//insertBotResponse("Fine wheather today everywhere. :)");
-			notify();
 		}
 	}
 	

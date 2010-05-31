@@ -1,13 +1,11 @@
 package control;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.management.Notification;
 import javax.management.NotificationListener;
 
 import model.Word;
-
 import services.StatementEvaluator;
 import ui.BotGUI;
 
@@ -16,7 +14,7 @@ public class UiController {
 	private StatementEvaluator statementEvaluator;
 	
 	public UiController() {
-		// TODO Auto-generated constructor stub
+		botGui = new BotGUI(this);
 	}
 	
 	public BotGUI getBotGui() {
@@ -25,6 +23,7 @@ public class UiController {
 	
 	public void setBotGui(BotGUI botGui) {
 		this.botGui = botGui;
+		this.botGui.setUiController(this);
 	}
 	
 	public StatementEvaluator getStatementEvaluator() {
@@ -45,18 +44,5 @@ public class UiController {
 		String response = statementEvaluator.interpretStatement(wordList);
 		botGui.insertBotResponse(response);
 	}
-	
-	public void getNotifications(){
-		NotificationListener listener = new NotificationListener() {
-			
-			@Override
-			public void handleNotification(Notification notification, Object handback) {
-				// TODO Auto-generated method stub
-				giveResponse();
-			}
-		};
 		
-	}
-	
-	
 }

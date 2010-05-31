@@ -169,6 +169,7 @@ public class BotGUI extends javax.swing.JFrame {
 			chatTextArea.setCaretPosition(chatTextArea.getDocument()
 					.getLength());
 			//insertBotResponse("Fine wheather today everywhere. :)");
+			this.uiController.giveResponse(text);
 		}
 	}
 
@@ -189,6 +190,7 @@ public class BotGUI extends javax.swing.JFrame {
 			chatTextArea.setCaretPosition(chatTextArea.getDocument()
 					.getLength());
 			//insertBotResponse("Fine wheather today everywhere. :)");
+			this.uiController.giveResponse(text);
 		}
 	}
 	

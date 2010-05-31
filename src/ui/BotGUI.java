@@ -154,7 +154,8 @@ public class BotGUI extends javax.swing.JFrame {
 			// was a selection in the text area.
 			chatTextArea.setCaretPosition(chatTextArea.getDocument()
 					.getLength());
-			insertBotResponse("Fine wheather today everywhere. :)");
+			//insertBotResponse("Fine wheather today everywhere. :)");
+			notify();
 		}
 	}
 
@@ -174,7 +175,8 @@ public class BotGUI extends javax.swing.JFrame {
 			// was a selection in the text area.
 			chatTextArea.setCaretPosition(chatTextArea.getDocument()
 					.getLength());
-			insertBotResponse("Fine wheather today everywhere. :)");
+			//insertBotResponse("Fine wheather today everywhere. :)");
+			notify();
 		}
 	}
 	

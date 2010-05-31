@@ -21,14 +21,10 @@ public class ApplicationCoordinator {
 	 */
 	public static void main(String[] args) {
 		WordRepository wordRepository = new WordRepository();
-		StatementEvaluator statementEvaluator = new StatementEvaluator(wordRepository);
-		
-		BotGUI botGui = new BotGUI();
-		
+		StatementEvaluator statementEvaluator = new StatementEvaluator(wordRepository);		
 		
 		UiController uiController = new UiController();
 		uiController.setStatementEvaluator(statementEvaluator);
-		uiController.setBotGui(botGui);
 		uiController.createMainWindow();
 		
 	}

@@ -42,7 +42,7 @@ public class StatementEvaluator {
 	
 	
 	/* vezi documentation/interpretQuestion */
-	public String interpretStatement(List<Word> words) {
+	public void interpretStatement(List<Word> words) {		
 		Word locatie = new Word(0, "");
 		Word variabila = new Word(0, "");
 		Calendar timp[] = new Calendar[2];
@@ -60,8 +60,9 @@ public class StatementEvaluator {
 				timp[1].setTimeInMillis(0);
 			}
 		}
-
+		
 			/* check for flagged words */
+		
 		for(int i=0; i<words.size(); i++){
 			if (words.get(i).getFlag() == "locatie")
 				locatie.setValue(words.get(i).getValue());
@@ -69,10 +70,9 @@ public class StatementEvaluator {
 				variabila.setValue(words.get(i).getValue());
 			else if (words.get(i).getFlag() == "predicat"){
 				
-				/* transformare din predicat in variabila (eg: "noros" -> sky coverage cu Domain(50,70) */
+				// transformare din predicat in variabila (eg: "noros" -> sky coverage cu Domain(50,70) 
 			}
-		}
+		}	
 		
-		return "test string";
 	}
 }

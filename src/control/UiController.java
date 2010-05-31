@@ -35,11 +35,11 @@ public class UiController {
 		this.botGui.setVisible(true);
 	}
 	
-	public void giveResponse(){
-		String question = botGui.getInputTextField();
-		List<Word> wordList = statementEvaluator.evaluateStatement(question);
-		String response = statementEvaluator.interpretStatement(wordList);
-		botGui.insertBotResponse(response);
+	public void giveResponse(String question){
+		//List<Word> wordList = statementEvaluator.evaluateStatement(question);
+		//String response = statementEvaluator.interpretStatement(wordList);
+		//botGui.insertBotResponse(response);
+		botGui.insertBotResponse(question);
 	}
 		
 }

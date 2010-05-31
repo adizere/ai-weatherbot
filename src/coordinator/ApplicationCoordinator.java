@@ -20,11 +20,11 @@ public class ApplicationCoordinator {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		WordRepository wordRepository = new WordRepository();
-		StatementEvaluator statementEvaluator = new StatementEvaluator(wordRepository);		
+		//WordRepository wordRepository = new WordRepository();
+		//StatementEvaluator statementEvaluator = new StatementEvaluator(wordRepository);		
 		
 		UiController uiController = new UiController();
-		uiController.setStatementEvaluator(statementEvaluator);
+		//uiController.setStatementEvaluator(statementEvaluator);
 		uiController.createMainWindow();
 		
 	}

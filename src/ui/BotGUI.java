@@ -1,11 +1,7 @@
 package ui;
 
-import java.awt.Color;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.font.TextAttribute;
-import java.text.AttributedString;
 
 import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
@@ -53,7 +49,12 @@ public class BotGUI extends javax.swing.JFrame {
 		initGUI();
 		this.uiController = uiController;
 	}
-
+	
+	public BotGUI(){
+		super();
+		initGUI();
+	}
+	
 	private void initGUI() {
 		try {
 			GroupLayout thisLayout = new GroupLayout(

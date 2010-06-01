@@ -17,5 +17,6 @@
       <mapping resource="hbm/word.hbm.xml"/>
       <mapping resource="hbm/domain.hbm.xml"/>
       <mapping resource="hbm/variable.hbm.xml"/>
+      <mapping resource="hbm/timeline.hbm.xml"/>
 </session-factory>
 </hibernate-configuration>

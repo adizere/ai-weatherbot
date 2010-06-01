@@ -8,6 +8,7 @@ import org.hibernate.cfg.Configuration;
 
 import control.UiController;
 
+import repository.TimelineRepository;
 import repository.WordRepository;
 import services.StatementEvaluator;
 import ui.BotGUI;
@@ -26,7 +27,8 @@ public class ApplicationCoordinator {
 		UiController uiController = new UiController();
 		//uiController.setStatementEvaluator(statementEvaluator);
 		uiController.createMainWindow();
-		
+	
+		TimelineRepository tl = new TimelineRepository();
 	}
 
 }

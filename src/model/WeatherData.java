@@ -1,14 +1,15 @@
 package model;
 
 import java.util.GregorianCalendar;
-import java.util.Set;
-import java.util.TreeSet;
 
 public class WeatherData {
 	
+	private long id;
 	String location = "niciunde";
-	Set<Label> labels = new TreeSet<Label>();
+	Label label;
+	private long label_id;
 	Timeline timeline = new Timeline(GregorianCalendar.getInstance(), GregorianCalendar.getInstance());
+	private long timeline_id;
 	
 	/**
 	 * 
@@ -16,17 +17,27 @@ public class WeatherData {
 	public WeatherData() {
 		super();
 	}
-	
+
 	/**
+	 * @param id
 	 * @param location
-	 * @param labels
-	 * @param timeline
+	 * @param labelId
+	 * @param timelineId
 	 */
-	public WeatherData(String location, Set<Label> labels, Timeline timeline) {
+	public WeatherData(long id, String location, long labelId, long timelineId) {
 		super();
+		this.id = id;
 		this.location = location;
-		this.labels = labels;
-		this.timeline = timeline;
+		label_id = labelId;
+		timeline_id = timelineId;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public String getLocation() {
@@ -37,12 +48,20 @@ public class WeatherData {
 		this.location = location;
 	}
 
-	public Set<Label> getLabels() {
-		return labels;
+	public Label getLabel() {
+		return label;
 	}
 
-	public void setLabels(Set<Label> labels) {
-		this.labels = labels;
+	public void setLabel(Label label) {
+		this.label = label;
+	}
+
+	public long getLabel_id() {
+		return label_id;
+	}
+
+	public void setLabel_id(long labelId) {
+		label_id = labelId;
 	}
 
 	public Timeline getTimeline() {
@@ -52,5 +71,16 @@ public class WeatherData {
 	public void setTimeline(Timeline timeline) {
 		this.timeline = timeline;
 	}
+
+	public long getTimeline_id() {
+		return timeline_id;
+	}
+
+	public void setTimeline_id(long timelineId) {
+		timeline_id = timelineId;
+	}
+	
+	
+	
 	
 }

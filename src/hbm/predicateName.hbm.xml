@@ -4,17 +4,13 @@
     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
     
 <hibernate-mapping>
-  <class name="model.Label" table="Label">
+  <class name="model.Predicate" table="Predicate">
 	  <id name="id" type="long" column="id" >
-	   	<generator class="native"/>
+	   	<generator class="increment"/>
 	  </id>
 	  
-	  <property name="variable_id" type="long">
-		 <column name="variable_id" />
-	  </property>
-	  
-	  <property name="value_id" type="long">
-		 <column name="value_id" />
+	  <property name="name" type="string">
+		 <column name="name" />
 	  </property>
 	  
    </class>

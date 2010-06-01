@@ -27,8 +27,6 @@ public class ApplicationCoordinator {
 		UiController uiController = new UiController();
 		//uiController.setStatementEvaluator(statementEvaluator);
 		uiController.createMainWindow();
-	
-		TimelineRepository tl = new TimelineRepository();
 	}
 
 }

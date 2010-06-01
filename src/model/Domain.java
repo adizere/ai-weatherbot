@@ -10,7 +10,6 @@ public class Domain {
 	private static final double EPSILON = 1e-2;
 	private double lowerBound;
 	private double upperBound;
-	List variables;
 	
 	
 	
@@ -29,7 +28,6 @@ public class Domain {
 		this.id = id;
 		this.lowerBound = lowerBound;
 		this.upperBound = upperBound;
-		variables = new ArrayList();
 	}
 
 	/**
@@ -40,7 +38,6 @@ public class Domain {
 		super();
 		this.lowerBound = lowerBound;
 		this.upperBound = upperBound;
-		variables = new ArrayList();
 	}
 
 	public double getLowerBound() {
@@ -83,14 +80,6 @@ public class Domain {
 
 	public void setId(long id) {
 		this.id = id;
-	}
-
-	public List getVariables() {
-		return variables;
-	}
-
-	public void setVariables(List variables) {
-		this.variables = variables;
 	}
 	@Override
 	public String toString() {

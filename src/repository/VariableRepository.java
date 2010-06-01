@@ -42,15 +42,15 @@ public class VariableRepository {
 	        listD = query.list();
 	        
 	        Iterator<Domain> it = listD.iterator();
-	        while(it.hasNext()){
-	        	List<Variable> lv = it.next().getVariables();
-	        	Iterator<Variable> it2 = lv.iterator();
-	        	while(it2.hasNext()){
-	        		Variable v = it2.next();
-	        		if (v != null)
-	        			listV.add(v);
-	        	}
-	        }
+//	        while(it.hasNext()){
+//	        	List<Variable> lv = it.next().getVariables();
+//	        	Iterator<Variable> it2 = lv.iterator();
+//	        	while(it2.hasNext()){
+//	        		Variable v = it2.next();
+//	        		if (v != null)
+//	        			listV.add(v);
+//	        	}
+//	        }
 			
 		} catch (Exception e) {
 			System.out.println("Word Repository exception: " + e.getMessage());

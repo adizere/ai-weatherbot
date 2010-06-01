@@ -17,11 +17,6 @@
 		 <column name="upperBound" />
 	  </property>
 	  
-      <list name="variables" cascade="all">
-          <key column="domainId"/>
-          <index column="id"/>
-          <one-to-many class="model.Variable"/>
-      </list>
 	  
    </class>
 

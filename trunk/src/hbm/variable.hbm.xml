@@ -13,8 +13,6 @@
 		 <column name="name" />
 	  </property>
 	  
-	  <many-to-one name="domain" class="model.Domain" column="domainId"/>
-	  
 	  
    </class>
 

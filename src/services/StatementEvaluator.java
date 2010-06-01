@@ -5,15 +5,31 @@ import java.util.Calendar;
 import java.util.List;
 
 import model.Word;
+import repository.DomainRepository;
+import repository.LabelRepository;
+import repository.PredicateAdaptorRepository;
+import repository.TimelineRepository;
+import repository.VariableRepository;
+import repository.WeatherDataRepository;
 import repository.WordRepository;
 
 public class StatementEvaluator {
 
 	private WordRepository wr;
+	private DomainRepository dr;
+	private LabelRepository lr;
+	private PredicateAdaptorRepository par;
+	private TimelineRepository tr;
+	private VariableRepository vr;
+	private WeatherDataRepository wdr;
+	
 
-	public StatementEvaluator(WordRepository w) {
-		this.wr = w;
+	
+
+	public StatementEvaluator(WordRepository wr2) {
+		this.wr = wr2;
 	}
+
 
 	/**
 	 * @param st
@@ -22,6 +38,12 @@ public class StatementEvaluator {
 	 * @author Adizere
 	 */
 	public List<Word> evaluateStatement(String st) {		/* tokenize by " " and "," */
+		
+		st.replaceAll("?", "");
+		st.replaceAll("!", "");
+		st.replaceAll(".", "");
+		st.replaceAll(",", "");
+		
 
 		List<Word> list = new ArrayList<Word>();
 
@@ -42,7 +64,7 @@ public class StatementEvaluator {
 	
 	
 	/* vezi documentation/interpretQuestion */
-	public void interpretStatement(List<Word> words) {		
+	public String interpretStatement(List<Word> words) {		
 		Word locatie = new Word(0, "");
 		Word variabila = new Word(0, "");
 		Calendar timp[] = new Calendar[2];
@@ -70,9 +92,9 @@ public class StatementEvaluator {
 				variabila.setValue(words.get(i).getValue());
 			else if (words.get(i).getFlag() == "predicat"){
 				
-				// transformare din predicat in variabila (eg: "noros" -> sky coverage cu Domain(50,70) 
+				// transformare din predicat in variabila (eg: "noros" -> sky coverage cu Domain(50,70)
 			}
 		}	
-		
+		return "";
 	}
 }

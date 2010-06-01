@@ -6,6 +6,7 @@ import java.util.List;
 
 import model.*;
 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -26,13 +27,9 @@ public class WeatherDataRepository {
 		session = sessionFactory.openSession();
 		
 		try {
-			Transaction tx = session.beginTransaction();
 
-			
-			WeatherData wd = new WeatherData();
-			session.save(wd);
-			
-			tx.commit();
+			Criteria criteria = session.createCriteria(WeatherData.class);
+			list = criteria.list();
 
 			
 		}catch (Exception e) {

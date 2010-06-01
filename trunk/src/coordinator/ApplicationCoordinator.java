@@ -19,6 +19,8 @@ import control.UiController;
 import repository.DomainRepository;
 import repository.LabelRepository;
 import repository.PredicateAdaptorRepository;
+import repository.PredicateNameRepository;
+import repository.PredicateRepository;
 import repository.TimelineRepository;
 import repository.VariableRepository;
 import repository.WeatherDataRepository;
@@ -38,7 +40,7 @@ public class ApplicationCoordinator {
 		//StatementEvaluator statementEvaluator = new StatementEvaluator(wordRepository);		
 		
 
-		
+		PredicateNameRepository		pnr = new PredicateNameRepository();
 		DomainRepository 			dr = new DomainRepository();
 		VariableRepository 			vr = new VariableRepository();
 		LabelRepository 			lr = new LabelRepository(vr, dr);
@@ -46,7 +48,9 @@ public class ApplicationCoordinator {
 		TimelineRepository 			tr = new TimelineRepository();
 		WeatherDataRepository		wdr = new WeatherDataRepository(lr, tr);
 		WordRepository 				wr = new WordRepository();
+		PredicateRepository			pr = new PredicateRepository(par, dr, vr, pnr);
 		
+
 		StatementEvaluator statementEvaluator = new StatementEvaluator(wr, dr, lr, par, tr, vr, wdr);
 		
 		UiController uiController = new UiController();

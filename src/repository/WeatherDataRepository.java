@@ -51,4 +51,5 @@ public class WeatherDataRepository {
 			System.out.println("weatherData Repo exception: " + e.getMessage());
 		}
 	}
+	
 }

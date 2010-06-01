@@ -3,13 +3,11 @@ package repository;
 import java.util.ArrayList;
 import java.util.List;
 
-
-import model.*;
+import model.Domain;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 public class DomainRepository {
@@ -44,5 +42,14 @@ public class DomainRepository {
 
 	public List<Domain> getAll() {
 		return this.list;
+	}
+	
+	public Domain findById(long id){
+		for(Domain d:list){
+			if(d.getId() == id)
+				return d;
+		}
+		
+		return null;
 	}
 }

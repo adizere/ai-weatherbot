@@ -21,6 +21,8 @@ public class Timeline {
 		this.id = id;
 		this.begin = begin;
 		this.end = end;
+		this.begin.set(Calendar.MILLISECOND, 0);
+		this.end.set(Calendar.MILLISECOND, 0);
 	}
 	
 	/**
@@ -31,6 +33,8 @@ public class Timeline {
 		super();
 		this.begin = begin;
 		this.end = end;
+		this.begin.set(Calendar.MILLISECOND, 0);
+		this.end.set(Calendar.MILLISECOND, 0);
 	}
 	/**
 	 * 
@@ -41,6 +45,8 @@ public class Timeline {
 		this.begin = beg;
 		Calendar end = Calendar.getInstance();
 		this.end = end;
+		this.begin.set(Calendar.MILLISECOND, 0);
+		this.end.set(Calendar.MILLISECOND, 0);
 	}
 	
 	public Calendar getBegin() {
@@ -49,6 +55,7 @@ public class Timeline {
 	
 	public void setBegin(Calendar begin) {
 		this.begin = begin;
+		this.begin.set(Calendar.MILLISECOND, 0);
 	}
 	
 	public Calendar getEnd() {
@@ -57,6 +64,7 @@ public class Timeline {
 	
 	public void setEnd(Calendar end) {
 		this.end = end;
+		this.end.set(Calendar.MILLISECOND, 0);
 	}
 	
 	
@@ -78,7 +86,7 @@ public class Timeline {
 	}
 	
 	public static String displayCalendar(Calendar c){
-		String dc = " " + (c.get(Calendar.DATE)+1) + "." + (c.get(Calendar.MONTH)+1) + "." + c.get(Calendar.YEAR) + " " + c.get(Calendar.HOUR_OF_DAY) + ":" + c.get(Calendar.MINUTE) + ":" + c.get(Calendar.SECOND);
+		String dc = " " + c.get(Calendar.DATE) + "." + (c.get(Calendar.MONTH)+1) + "." + c.get(Calendar.YEAR) + " " + c.get(Calendar.HOUR_OF_DAY) + ":" + c.get(Calendar.MINUTE) + ":" + c.get(Calendar.SECOND);
 		return dc;
 	}
 
@@ -87,5 +95,15 @@ public class Timeline {
 		String timeB = this.displayCalendar(begin);
 		String timeE = this.displayCalendar(end);
 		return "Timeline [begin=" + timeB + ", end=" + timeE + ", id=" + id + "]";
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		Timeline t = (Timeline) obj;
+		if(!t.getBegin().equals(begin))
+			return false;
+		if(!t.getEnd().equals(end))
+			return false;
+		return true;
 	}
 }

@@ -37,9 +37,9 @@ public class LabelRepository {
 			Criteria criteria = session.createCriteria(Domain.class);
 			list = criteria.list();
 			for(int i = 0; i < list.size(); i++){
-				Variable v = (Variable) session.load(Variable.class,list.get(i).getVariable_id());
+				Variable v = vr.findById(list.get(i).getVariable_id());
 				list.get(i).setVariable(v);
-				Domain d = (Domain) session.load(Domain.class, list.get(i).getValue_id());
+				Domain d = dr.findById(list.get(i).getValue_id());
 				list.get(i).setValue(d);
 			}
 			

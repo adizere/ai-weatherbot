@@ -37,8 +37,10 @@ public class Timeline {
 	 */
 	public Timeline() {
 		super();
-		this.begin = Calendar.getInstance();
-		this.end = Calendar.getInstance();
+		Calendar beg = Calendar.getInstance();
+		this.begin = beg;
+		Calendar end = Calendar.getInstance();
+		this.end = end;
 	}
 	
 	public Calendar getBegin() {
@@ -73,5 +75,10 @@ public class Timeline {
 			return true;
 		}
 		return false;
+	}
+	
+	public static String displayCalendar(Calendar c){
+		String dc = " " + c.get(Calendar.DATE) + "." + c.get(Calendar.MONTH) + "." + c.get(Calendar.YEAR) + " " + c.get(Calendar.HOUR_OF_DAY) + ":" + c.get(Calendar.MINUTE) + ":" + c.get(Calendar.SECOND);
+		return dc;
 	}
 }

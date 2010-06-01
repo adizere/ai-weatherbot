@@ -34,7 +34,7 @@ public class LabelRepository {
 		
 		try {
 			
-			Criteria criteria = session.createCriteria(Domain.class);
+			Criteria criteria = session.createCriteria(Label.class);
 			list = criteria.list();
 			for(int i = 0; i < list.size(); i++){
 				Variable v = vr.findById(list.get(i).getVariable_id());

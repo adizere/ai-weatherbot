@@ -1,22 +1,14 @@
 package repository;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
+import model.Variable;
+
 import org.hibernate.Criteria;
-import org.hibernate.Query;
-import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
-import org.springframework.jdbc.object.SqlQuery;
-
-import model.Domain;
-import model.Timeline;
-import model.Variable;
-import model.Word;
 
 public class VariableRepository {
 
@@ -47,4 +39,10 @@ public class VariableRepository {
 		return this.list;
 	}
 	
+	public Variable findById(long id){
+		for(Variable v:list)
+			if(v.getId() == id)
+				return v;
+		return null;
+	}
 }

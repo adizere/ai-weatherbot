@@ -44,10 +44,10 @@ public class ApplicationCoordinator {
 		LabelRepository 			lr = new LabelRepository(vr, dr);
 		PredicateAdaptorRepository 	par = new PredicateAdaptorRepository();
 		TimelineRepository 			tr = new TimelineRepository();
-		WeatherDataRepository		wdr = new WeatherDataRepository();
+		WeatherDataRepository		wdr = new WeatherDataRepository(lr, tr);
 		WordRepository 				wr = new WordRepository();
 		
-		StatementEvaluator statementEvaluator = new StatementEvaluator(wr);
+		StatementEvaluator statementEvaluator = new StatementEvaluator(wr, dr, lr, par, tr, vr, wdr);
 		
 		UiController uiController = new UiController();
 		uiController.setStatementEvaluator(statementEvaluator);

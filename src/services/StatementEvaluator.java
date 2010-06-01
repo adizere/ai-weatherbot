@@ -26,6 +26,21 @@ public class StatementEvaluator {
 
 	
 
+	public StatementEvaluator(WordRepository wr, DomainRepository dr,
+			LabelRepository lr, PredicateAdaptorRepository par,
+			TimelineRepository tr, VariableRepository vr,
+			WeatherDataRepository wdr) {
+		super();
+		this.wr = wr;
+		this.dr = dr;
+		this.lr = lr;
+		this.par = par;
+		this.tr = tr;
+		this.vr = vr;
+		this.wdr = wdr;
+	}
+
+
 	public StatementEvaluator(WordRepository wr2) {
 		this.wr = wr2;
 	}

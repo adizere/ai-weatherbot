@@ -16,9 +16,15 @@ public class WeatherDataRepository {
 
 	private List<WeatherData> list;
 	private Session session;
+	private LabelRepository lr;
+	private TimelineRepository tr;
 	
 	
-	public WeatherDataRepository() {
+	public WeatherDataRepository(LabelRepository lr, TimelineRepository tr) {
+		
+		this.lr = lr;
+		this.tr = tr;
+		
 		list = new ArrayList<WeatherData>();
 
 		session = null;
@@ -31,6 +37,15 @@ public class WeatherDataRepository {
 			Criteria criteria = session.createCriteria(WeatherData.class);
 			list = criteria.list();
 
+			for (int i=0; i<list.size(); i++){
+				Label l = lr.findByID(list.get(i).getLabel_id());
+				if (l != null)
+					list.get(i).setLabel(l);
+				
+				Timeline t = tr.findByID(list.get(i).getTimeline_id());
+				if (t != null)
+					list.get(i).setTimeline(t);
+			}
 			
 		}catch (Exception e) {
 			System.out.println("weatherData Repo exception: " + e.getMessage());

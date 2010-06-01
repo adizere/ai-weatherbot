@@ -81,4 +81,11 @@ public class Timeline {
 		String dc = " " + (c.get(Calendar.DATE)+1) + "." + (c.get(Calendar.MONTH)+1) + "." + c.get(Calendar.YEAR) + " " + c.get(Calendar.HOUR_OF_DAY) + ":" + c.get(Calendar.MINUTE) + ":" + c.get(Calendar.SECOND);
 		return dc;
 	}
+
+	@Override
+	public String toString() {
+		String timeB = this.displayCalendar(begin);
+		String timeE = this.displayCalendar(end);
+		return "Timeline [begin=" + timeB + ", end=" + timeE + ", id=" + id + "]";
+	}
 }

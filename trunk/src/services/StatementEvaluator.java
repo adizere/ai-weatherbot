@@ -124,7 +124,6 @@ public class StatementEvaluator {
 				variabila.setValue(words.get(i).getValue());
 			else if (words.get(i).getFlag().equals("predicat")) {
 				pred = pr.findByName(words.get(i).getValue());
-				
 			} else if (words.get(i).getFlag().equals("timp")) {
 				timpi.add(words.get(i));
 			}
@@ -147,10 +146,10 @@ public class StatementEvaluator {
 		if (timeService != null)
 			timp = timeService.getTimeline();
 
-		System.out.println(Timeline.displayCalendar(timp.getBegin()));
-//		System.out.println(timp.getEnd());
+
 			
 		/* verificare ce avem */
+		
 		
 		
 		

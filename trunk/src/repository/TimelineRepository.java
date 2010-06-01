@@ -32,8 +32,6 @@ public class TimelineRepository {
 
 		try {
 
-			String sql = "select from Timeline timeline";
-
 			Criteria criteria = session.createCriteria(Timeline.class);
 			list = criteria.list();
 

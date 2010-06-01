@@ -51,5 +51,10 @@ public class WeatherDataRepository {
 			System.out.println("weatherData Repo exception: " + e.getMessage());
 		}
 	}
+
+
+	public List<WeatherData> getAll() {
+		return list;
+	}
 	
 }

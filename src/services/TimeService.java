@@ -45,20 +45,27 @@ public class TimeService {
 			switch (date){
 			case 0: setTheDayBeforeYersterday(timeline);
 					setMidDayTime(timeline);
+					break;
 			case 1: setYersterday(timeline);
 					setMidDayTime(timeline);
+					break;
 			case 2: setToday(timeline);
 					setMidDayTime(timeline);
+					break;
 			case 3: setToday(timeline);
 					setMidDayTime(timeline);
+					break;
 			case 4: setToday(timeline);
 					setMidDayTime(timeline);
+					break;
 			case 5: setTomorrow(timeline);
 					setMidDayTime(timeline);
 					System.out.println(Timeline.displayCalendar(timeline.getBegin()));
 					System.out.println(Timeline.displayCalendar(timeline.getEnd()));
+					break;
 			case 6: setTheDayAfterTomorrow(timeline);
 					setMidDayTime(timeline);
+					break;
 			}
 		}
 		
@@ -68,15 +75,23 @@ public class TimeService {
 		else{
 			switch (time){
 			case 0: setMorningTime(timeline);
+			break;
 			case 1: setMidDayTime(timeline);
+			break;
 			case 2: setMidDayTime(timeline);
+			break;
 			case 3: setEveningTime(timeline);
+			break;
 			case 4: setEveningTime(timeline);
+			break;
 			case 5: setNightTime(timeline);
+			break;
 			case 6: setNightTime(timeline);
 					setYersterday(timeline);
+					break;
 			case 7: setEveningTime(timeline);
 					setYersterday(timeline);
+					break;
 			}
 		}
 	}
@@ -157,4 +172,12 @@ public class TimeService {
 		date.getEnd().set(Calendar.DATE, date.getEnd().get(Calendar.DATE) + 2);
 		setSeconds(date);
 	}
+	
+	/* adi: un fel de setSeconds, da pentru zi */
+	
+	public static void setDay(Timeline t){
+		t.getEnd().set(Calendar.YEAR, 0);
+		t.getBegin().set(Calendar.YEAR, 0);
+	}
+	
 }

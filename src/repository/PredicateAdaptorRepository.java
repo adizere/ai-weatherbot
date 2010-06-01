@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import model.Predicate;
 import model.PredicateAdaptor;
-import model.Word;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -43,6 +41,22 @@ public class PredicateAdaptorRepository {
 			System.out.println("PredicateRepository Error: " + e.getMessage());
 		}
 		
+	}
+
+	public List<PredicateAdaptor> getList() {
+		return list;
+	}
+
+	public void setList(List<PredicateAdaptor> list) {
+		this.list = list;
+	}
+
+	public Session getSession() {
+		return session;
+	}
+
+	public void setSession(Session session) {
+		this.session = session;
 	}
 
 }

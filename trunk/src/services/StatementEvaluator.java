@@ -3,6 +3,7 @@ package services;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.Iterator;
 import java.util.List;
 
 import model.*;
@@ -90,7 +91,7 @@ public class StatementEvaluator {
 		Predicate pred = new Predicate();
 
 		Timeline anyTime = new Timeline();
-		TimeService.setSeconds(anyTime);
+		TimeService.setDay(anyTime);
 
 		Timeline tRef = null;
 		Word pRef = null;
@@ -146,15 +147,50 @@ public class StatementEvaluator {
 		if (timeService != null)
 			timp = timeService.getTimeline();
 
-
-			
 		/* verificare ce avem */
 		
+		/* filtram datele in ordinea urmatoare:
+		 * 		- locatie
+		 * 		- timp
+		 * 		- variabile
+		 */
+		
+		List<WeatherData> weatherDatas;
+		weatherDatas = wdr.getAll();
+		List<WeatherData> result = new ArrayList<WeatherData>();
+		
+		if (!locatie.getValue().equals("oriunde")){
+			for (WeatherData wd : weatherDatas) {
+				if (wd.getLocation().equals(locatie.getValue()))
+					result.add(wd);
+			}
+		}
+		
+		if (timp.getBegin().get(Calendar.YEAR) != 1){
+			Iterator<WeatherData> it = result.iterator();
+			while (it.hasNext()){
+				WeatherData wData = it.next();
+				if (!wData.getTimeline().covers(timp) && !timp.covers(wData.getTimeline()))
+					it.remove();
+			}
+		}
 		
 		
 		
-	return "";
-}
+		String retStr = "";
+		for (WeatherData weatherData : result) {
+			retStr = "Am gasit orasul ";
+			retStr += weatherData.getLocation();
+			retStr += " pe perioada ";
+			retStr += weatherData.getTimeline().toString() + " ";
+			retStr += weatherData.getLabel().getVariable().getName();
+			retStr += " intre ";
+			retStr += weatherData.getLabel().getValue().getLowerBound() + " si " +weatherData.getLabel().getValue().getUpperBound(); 
+		}
+		if (retStr.length() == 0)
+			retStr += "Fi putin mai explicit, te rog.";
+		return retStr;
+	}
 }
 
 

@@ -77,12 +77,19 @@ public class Timeline {
 	}
 
 	public boolean covers(Timeline timeline){
-		if( ( this.begin.before(timeline.getBegin()) || this.begin.equals(timeline.getBegin())) &&
-			( this.end.after(timeline.getEnd()) || this.end.equals(timeline.getEnd())) ){
-			
+//		if( ( this.begin.before(timeline.getBegin()) || this.begin.equals(timeline.getBegin())) &&
+//			( this.end.after(timeline.getEnd()) || this.end.equals(timeline.getEnd())) ){
+//			
+//			return true;
+//		}
+//		return false;
+		int a = this.begin.compareTo(timeline.begin);
+		int b = this.end.compareTo(timeline.end);
+		
+		if ((a <= 0) && (b >=0))
 			return true;
-		}
 		return false;
+		
 	}
 	
 	public static String displayCalendar(Calendar c){
@@ -94,7 +101,7 @@ public class Timeline {
 	public String toString() {
 		String timeB = this.displayCalendar(begin);
 		String timeE = this.displayCalendar(end);
-		return "Timeline [begin=" + timeB + ", end=" + timeE + ", id=" + id + "]";
+		return "[begin=" + timeB + ", end=" + timeE + "]";
 	}
 	
 	@Override

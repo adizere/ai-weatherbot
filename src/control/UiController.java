@@ -38,8 +38,8 @@ public class UiController {
 	public void giveResponse(String question){
 		List<Word> wordList = statementEvaluator.evaluateStatement(question);
 		String response = statementEvaluator.interpretStatement(wordList);
-		//botGui.insertBotResponse(response);
-		botGui.insertBotResponse(question);
+		botGui.insertBotResponse(response);
+//		botGui.insertBotResponse(question);
 	}
 		
 }

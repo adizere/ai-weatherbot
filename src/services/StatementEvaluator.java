@@ -2,12 +2,14 @@ package services;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 
-import model.Word;
+import model.*;
 import repository.DomainRepository;
 import repository.LabelRepository;
 import repository.PredicateAdaptorRepository;
+import repository.PredicateRepository;
 import repository.TimelineRepository;
 import repository.VariableRepository;
 import repository.WeatherDataRepository;
@@ -18,26 +20,28 @@ public class StatementEvaluator {
 	private WordRepository wr;
 	private DomainRepository dr;
 	private LabelRepository lr;
-	private PredicateAdaptorRepository par;
+	private PredicateRepository pr;
 	private TimelineRepository tr;
 	private VariableRepository vr;
 	private WeatherDataRepository wdr;
+	private TimeService timeService;
 	
 
 	
 
 	public StatementEvaluator(WordRepository wr, DomainRepository dr,
-			LabelRepository lr, PredicateAdaptorRepository par,
+			LabelRepository lr, PredicateRepository pr,
 			TimelineRepository tr, VariableRepository vr,
 			WeatherDataRepository wdr) {
 		super();
 		this.wr = wr;
 		this.dr = dr;
 		this.lr = lr;
-		this.par = par;
+		this.pr = pr;
 		this.tr = tr;
 		this.vr = vr;
 		this.wdr = wdr;
+
 	}
 
 
@@ -54,9 +58,9 @@ public class StatementEvaluator {
 	 */
 	public List<Word> evaluateStatement(String st) {		/* tokenize by " " and "," */
 		
-		st.replaceAll("?", "");
+		st.replaceAll("\\?", "");
 		st.replaceAll("!", "");
-		st.replaceAll(".", "");
+		st.replaceAll("\\.", "");
 		st.replaceAll(",", "");
 		
 
@@ -79,37 +83,88 @@ public class StatementEvaluator {
 	
 	
 	/* vezi documentation/interpretQuestion */
-	public String interpretStatement(List<Word> words) {		
+	public String interpretStatement(List<Word> words) {
 		Word locatie = new Word(0, "");
 		Word variabila = new Word(0, "");
-		Calendar timp[] = new Calendar[2];
-		
-			/* check for complements */
-		
+		Timeline timp = new Timeline();
+		Predicate pred = new Predicate();
+
+		Timeline anyTime = new Timeline();
+		TimeService.setSeconds(anyTime);
+
+		Timeline tRef = null;
+		Word pRef = null;
+		Word pLoc = null;
+		Word pVar = null;
+
+		/* check for complements */
+
 		for (int i = 0; i < words.size(); i++) {
-			if (words.get(i).getValue() == "unde")
-				locatie.setValue("oriunde");
-			else if (words.get(i).getValue() == "cat"
-					|| words.get(i).getValue() == "ce")
-				variabila.setValue("oricum");
-			else if (words.get(i).getValue() == "cand") {
-				timp[0].setTimeInMillis(0);
-				timp[1].setTimeInMillis(0);
+			if (words.get(i).getValue().equals("unde"))
+				locatie.setValue("oriunde"); /*
+											 * cautam locatiile care evalueaza
+											 * predicatele la adevarat pentru
+											 * datele de la locatiile respective
+											 */
+			else if (words.get(i).getValue().equals("cum")) {
+
+			} else if (words.get(i).getValue().equals("cand")) {
+				tRef = anyTime;
 			}
 		}
-		
-			/* check for flagged words */
-		
-		for(int i=0; i<words.size(); i++){
-			if (words.get(i).getFlag() == "locatie")
+
+		/* check for flagged words */
+
+		List<Word> timpi = new ArrayList<Word>();
+
+		for (int i = 0; i < words.size(); i++) {
+			if (words.get(i).getFlag().equals("locatie"))
 				locatie.setValue(words.get(i).getValue());
-			else if (words.get(i).getFlag() == "variabila")
+			else if (words.get(i).getFlag().equals("variabila"))
 				variabila.setValue(words.get(i).getValue());
-			else if (words.get(i).getFlag() == "predicat"){
+			else if (words.get(i).getFlag().equals("predicat")) {
+				pred = pr.findByName(words.get(i).getValue());
 				
-				// transformare din predicat in variabila (eg: "noros" -> sky coverage cu Domain(50,70)
+			} else if (words.get(i).getFlag().equals("timp")) {
+				timpi.add(words.get(i));
 			}
-		}	
-		return "";
-	}
+		}
+
+		TimeService timeService = null;
+
+		switch (timpi.size()) {
+		case 1:
+			timeService = new TimeService(timpi.get(0).getValue(), "");
+			break;
+		case 2:
+			timeService = new TimeService(timpi.get(0).getValue(), timpi.get(1)
+					.getValue());
+			break;
+		default:
+			break;
+		}
+
+		if (timeService != null)
+			timp = timeService.getTimeline();
+
+		System.out.println(Timeline.displayCalendar(timp.getBegin()));
+//		System.out.println(timp.getEnd());
+			
+		/* verificare ce avem */
+		
+		
+		
+	return "";
 }
+}
+
+
+
+//for (Word w : words) {
+//	if (w.getFlag().equals("variabila"))
+//		pVar = w;
+//	else if (w.getFlag().equals("predicat"))
+//		pRef = w;
+//}
+//if (pVar == null && pRef == null)
+//	return "nu mi-ai dat date suficiente";

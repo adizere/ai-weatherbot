@@ -26,6 +26,7 @@ import repository.VariableRepository;
 import repository.WeatherDataRepository;
 import repository.WordRepository;
 import services.StatementEvaluator;
+import services.TimeService;
 import ui.BotGUI;
 
 
@@ -50,8 +51,8 @@ public class ApplicationCoordinator {
 		WordRepository 				wr = new WordRepository();
 		PredicateRepository			pr = new PredicateRepository(par, dr, vr, pnr);
 		
-
-		StatementEvaluator statementEvaluator = new StatementEvaluator(wr, dr, lr, par, tr, vr, wdr);
+		
+		StatementEvaluator statementEvaluator = new StatementEvaluator(wr, dr, lr, pr, tr, vr, wdr);
 		
 		UiController uiController = new UiController();
 		uiController.setStatementEvaluator(statementEvaluator);

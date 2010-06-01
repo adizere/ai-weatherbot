@@ -10,11 +10,11 @@
 	  </id>
 	  
 	  <property name="begin" type="calendar">
-		 <column name="begin" length="19"/>
+		 <column name="begin"/>
 	  </property>
 	  
 	  <property name="end" type="calendar">
-		 <column name="end" length="19"/>
+		 <column name="end"/>
 	  </property>
 	  
    </class>

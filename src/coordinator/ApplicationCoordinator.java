@@ -53,6 +53,8 @@ public class ApplicationCoordinator {
 		uiController.setStatementEvaluator(statementEvaluator);
 		uiController.createMainWindow();
 		
+		
+		
 	}
 
 }

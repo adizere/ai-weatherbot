@@ -21,5 +21,6 @@
       <mapping resource="hbm/label.hbm.xml"/>
       <mapping resource="hbm/predicateAdaptor.hbm.xml"/>
       <mapping resource="hbm/weatherData.hbm.xml"/>
+      <mapping resource="hbm/predicate.hbm.xml"/>
 </session-factory>
 </hibernate-configuration>

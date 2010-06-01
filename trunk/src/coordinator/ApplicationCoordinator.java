@@ -4,6 +4,7 @@ import java.util.List;
 
 import model.Domain;
 import model.Flag;
+import model.PredicateAdaptor;
 import model.Variable;
 
 import org.hibernate.Session;
@@ -16,8 +17,11 @@ import com.sun.xml.internal.fastinfoset.algorithm.BuiltInEncodingAlgorithm.WordL
 import control.UiController;
 
 import repository.DomainRepository;
+import repository.LabelRepository;
+import repository.PredicateAdaptorRepository;
 import repository.TimelineRepository;
 import repository.VariableRepository;
+import repository.WeatherDataRepository;
 import repository.WordRepository;
 import services.StatementEvaluator;
 import ui.BotGUI;
@@ -33,11 +37,21 @@ public class ApplicationCoordinator {
 		//WordRepository wordRepository = new WordRepository();
 		//StatementEvaluator statementEvaluator = new StatementEvaluator(wordRepository);		
 		
-		UiController uiController = new UiController();
-		//uiController.setStatementEvaluator(statementEvaluator);
-		uiController.createMainWindow();
-		
 
+		
+		DomainRepository 			dr = new DomainRepository();
+		LabelRepository 			lr = new LabelRepository();
+		PredicateAdaptorRepository 	par = new PredicateAdaptorRepository();
+		TimelineRepository 			tr = new TimelineRepository();
+		VariableRepository 			vr = new VariableRepository();
+		WeatherDataRepository		wdr = new WeatherDataRepository();
+		WordRepository 				wr = new WordRepository();
+		
+		StatementEvaluator statementEvaluator = new StatementEvaluator(wr);
+		
+		UiController uiController = new UiController();
+		uiController.setStatementEvaluator(statementEvaluator);
+		uiController.createMainWindow();
 		
 	}
 

@@ -6,6 +6,7 @@ import java.util.List;
 
 import model.*;
 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -30,13 +31,8 @@ public class LabelRepository {
 		
 		try {
 			
-			Transaction tx = session.beginTransaction();
-			
-//			Label l = new Label(1, 2);
-			
-//			session.save(l);
-			
-			tx.commit();
+			Criteria criteria = session.createCriteria(Domain.class);
+			list = criteria.list();
 			
 		}catch(Exception e){
 			System.out.println("LabelRepository Error: " + e.getMessage());

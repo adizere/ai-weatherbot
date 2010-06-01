@@ -78,7 +78,7 @@ public class Timeline {
 	}
 	
 	public static String displayCalendar(Calendar c){
-		String dc = " " + c.get(Calendar.DATE) + "." + c.get(Calendar.MONTH) + "." + c.get(Calendar.YEAR) + " " + c.get(Calendar.HOUR_OF_DAY) + ":" + c.get(Calendar.MINUTE) + ":" + c.get(Calendar.SECOND);
+		String dc = " " + (c.get(Calendar.DATE)+1) + "." + (c.get(Calendar.MONTH)+1) + "." + c.get(Calendar.YEAR) + " " + c.get(Calendar.HOUR_OF_DAY) + ":" + c.get(Calendar.MINUTE) + ":" + c.get(Calendar.SECOND);
 		return dc;
 	}
 }

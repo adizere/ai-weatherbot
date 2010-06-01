@@ -33,9 +33,9 @@ public class PredicateEvaluationTest extends TestCase {
 	protected void setUp() throws Exception {
 		// TODO Auto-generated method stub
 
-		temp = new Variable("temperatura", new Domain(-50, 50));
-		vant = new Variable("viteza vantului ", new Domain(-500, 500));
-		cer = new Variable("acoperirea cerului", new Domain(0, 100));
+		temp = new Variable("temperatura");
+		vant = new Variable("viteza vantului ");
+		cer = new Variable("acoperirea cerului");
 
 		frig = new Predicate();
 		frig.put(temp, new Domain(-5, 10));

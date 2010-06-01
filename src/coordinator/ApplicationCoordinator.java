@@ -1,6 +1,11 @@
 package coordinator;
 
+import java.util.List;
+
+import model.Domain;
 import model.Flag;
+import model.Variable;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -10,7 +15,9 @@ import com.sun.xml.internal.fastinfoset.algorithm.BuiltInEncodingAlgorithm.WordL
 
 import control.UiController;
 
+import repository.DomainRepository;
 import repository.TimelineRepository;
+import repository.VariableRepository;
 import repository.WordRepository;
 import services.StatementEvaluator;
 import ui.BotGUI;
@@ -30,11 +37,7 @@ public class ApplicationCoordinator {
 		//uiController.setStatementEvaluator(statementEvaluator);
 		uiController.createMainWindow();
 		
-		String s = "Cum e azi in Cluj ?";
-		
-		WordRepository w = new WordRepository();
-		StatementEvaluator se = new StatementEvaluator(w);
-		se.evaluateStatement(s);
+
 		
 	}
 

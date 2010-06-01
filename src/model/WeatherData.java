@@ -32,6 +32,14 @@ public class WeatherData {
 		timeline_id = timelineId;
 	}
 
+	public WeatherData(WeatherData weatherData) {
+		super();
+		this.id = weatherData.getId();
+		this.location = weatherData.getLocation();
+		this.label_id = weatherData.getLabel_id();
+		this.timeline_id = weatherData.getTimeline_id();
+	}
+
 	public long getId() {
 		return id;
 	}

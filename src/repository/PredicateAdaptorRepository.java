@@ -58,5 +58,11 @@ public class PredicateAdaptorRepository {
 	public void setSession(Session session) {
 		this.session = session;
 	}
-
+	
+	public PredicateAdaptor findById(long id){
+		for(PredicateAdaptor pa:list)
+			if(pa.getId() == id)
+				return pa;
+		return null;
+	}
 }

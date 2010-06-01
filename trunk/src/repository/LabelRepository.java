@@ -49,6 +49,13 @@ public class LabelRepository {
 	}
 
 
+	public Label findByID(long labelId) {
+		for (int i=0; i<list.size(); i++)
+			if (list.get(i).getId() == labelId)
+				return list.get(i);
+		return null;
+	}
+	
 	public List<Label> getList() {
 		return list;
 	}

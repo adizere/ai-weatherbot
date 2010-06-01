@@ -37,8 +37,8 @@ public class Timeline {
 	 */
 	public Timeline() {
 		super();
-		this.begin = new GregorianCalendar();
-		this.end = new GregorianCalendar();
+		this.begin = Calendar.getInstance();
+		this.end = Calendar.getInstance();
 	}
 	
 	public Calendar getBegin() {

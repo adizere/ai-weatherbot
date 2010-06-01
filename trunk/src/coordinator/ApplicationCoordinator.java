@@ -40,10 +40,10 @@ public class ApplicationCoordinator {
 
 		
 		DomainRepository 			dr = new DomainRepository();
-		LabelRepository 			lr = new LabelRepository();
+		VariableRepository 			vr = new VariableRepository();
+		LabelRepository 			lr = new LabelRepository(vr, dr);
 		PredicateAdaptorRepository 	par = new PredicateAdaptorRepository();
 		TimelineRepository 			tr = new TimelineRepository();
-		VariableRepository 			vr = new VariableRepository();
 		WeatherDataRepository		wdr = new WeatherDataRepository();
 		WordRepository 				wr = new WordRepository();
 		

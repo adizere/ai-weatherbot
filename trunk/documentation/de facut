@@ -7,3 +7,9 @@
 		* Stringul returnat de statementEvaluator.interpretStatement() trebuie pus in UI in textArea
 						
 - repositories.. mult..
+
+
+
+- fereastra UI sa afiseze cum trebe
+- label.hbm.xml nu mai trebe sa aiba ca si column-ID membrul id, pentru ca aduce acelasi row de date din baza de date
+- prin LabelRepository si WeatherDataRepository..

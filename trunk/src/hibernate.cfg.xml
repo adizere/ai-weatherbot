@@ -18,5 +18,8 @@
       <mapping resource="hbm/domain.hbm.xml"/>
       <mapping resource="hbm/variable.hbm.xml"/>
       <mapping resource="hbm/timeline.hbm.xml"/>
+      <mapping resource="hbm/label.hbm.xml"/>
+      <mapping resource="hbm/predicateAdaptor.hbm.xml"/>
+      <mapping resource="hbm/weatherData.hbm.xml"/>
 </session-factory>
 </hibernate-configuration>

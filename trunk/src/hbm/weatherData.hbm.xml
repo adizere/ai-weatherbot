@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping>
+  <class name="model.WeatherData" table="WeatherData">
+	  <id name="id" type="long" column="id" >
+	   	<generator class="increment"/>
+	  </id>
+	  
+	  <property name="location" type="string">
+		 <column name="location" />
+	  </property>
+	  
+	  <property name="label_id" type="long">
+		 <column name="label_id" />
+	  </property>
+	  
+	  <property name="timeline_id" type="long">
+		 <column name="timeline_id" />
+	  </property>
+	  
+	  
+   </class>
+
+</hibernate-mapping>

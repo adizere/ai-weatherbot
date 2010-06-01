@@ -6,6 +6,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
+import com.sun.xml.internal.fastinfoset.algorithm.BuiltInEncodingAlgorithm.WordListener;
+
 import control.UiController;
 
 import repository.TimelineRepository;
@@ -27,6 +29,13 @@ public class ApplicationCoordinator {
 		UiController uiController = new UiController();
 		//uiController.setStatementEvaluator(statementEvaluator);
 		uiController.createMainWindow();
+		
+		String s = "Cum e azi in Cluj ?";
+		
+		WordRepository w = new WordRepository();
+		StatementEvaluator se = new StatementEvaluator(w);
+		se.evaluateStatement(s);
+		
 	}
 
 }

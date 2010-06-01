@@ -4,15 +4,12 @@ public class Variable implements Comparable<Variable>{
 	
 	private long id;
 	
-	private String name;
-	private Domain domain;
-	
+	private String name;	
 	
 	public Variable() {
 		super();
 		id = 0;
 		name = "";
-		domain = null;
 	}
 	
 	/**
@@ -20,21 +17,20 @@ public class Variable implements Comparable<Variable>{
 	 * @param name
 	 * @param domain
 	 */
-	public Variable(long id, String name, Domain domain) {
+	public Variable(long id, String name) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.domain = domain;
 	}
 
 	/**
 	 * @param name
 	 * @param domain
 	 */
-	public Variable(String name, Domain domain) {
+	public Variable(String name) {
 		super();
+		this.id = 0;
 		this.name = name;
-		this.domain = domain;
 	}
 
 	public String getName() {
@@ -44,15 +40,6 @@ public class Variable implements Comparable<Variable>{
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	public Domain getDomain() {
-		return domain;
-	}
-
-	public void setDomain(Domain domain) {
-		this.domain = domain;
-	}
-	
 	
 	public long getId() {
 		return id;
@@ -70,7 +57,7 @@ public class Variable implements Comparable<Variable>{
 
 	@Override
 	public String toString() {
-		return "#" + this.id + "; " + this.name + "; Domain: " + this.domain.toString();
+		return "#" + this.id + "; " + this.name ;
 	}
 	
 }

@@ -12,6 +12,9 @@
 	  <property name="name" type="string">
 		 <column name="name" />
 	  </property>
+	  <property name="id" type="long">
+		 <column name="id" />
+	  </property>
 	  
    </class>
 

@@ -79,6 +79,12 @@ public class WeatherData {
 	public void setTimeline_id(long timelineId) {
 		timeline_id = timelineId;
 	}
+
+	@Override
+	public String toString() {
+		return "WeatherData [id=" + id + ", label=" + label + ", location="
+				+ location + ", timeline=" + timeline + "]";
+	}
 	
 	
 	

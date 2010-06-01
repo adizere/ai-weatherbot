@@ -1,7 +1,7 @@
 package model;
 
 public class Label {
-	
+
 	private long id;
 	
 	private Variable variable;
@@ -81,4 +81,11 @@ public class Label {
 	public void setValue_id(long valueId) {
 		value_id = valueId;
 	}	
+	
+	
+	@Override
+	public String toString() {
+		return "Label [id=" + id + ", value=" + value + ", variable="
+				+ variable + "]";
+	}
 }

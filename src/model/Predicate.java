@@ -65,6 +65,10 @@ public class Predicate extends TreeMap<Variable, Domain> {
 	public void setId(long id) {
 		this.id = id;
 	}
+	@Override
+	public String toString() {
+		return "Predicate [id=" + id + ", name=" + name + "]";
+	}
 	
 	
 	

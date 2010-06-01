@@ -58,7 +58,7 @@ public class Word {
 
 	@Override
 	public String toString() {
-		return this.getId() + "; " + this.getValue() + "; " + this.flag;
+		return "[ " + this.getId() + "; " + this.getValue() + "; " + this.flag + " ] ";
 	}	
 	
 

@@ -96,6 +96,8 @@ public class StatementEvaluator {
 
 		Timeline anyTime = new Timeline();
 		TimeService.setDay(anyTime);
+		
+		timp = anyTime;
 
 		Timeline tRef = null;
 		Word pRef = null;
@@ -168,6 +170,11 @@ public class StatementEvaluator {
 				if (wd.getLocation().equals(locatie.getValue()))
 					result.add(wd);
 			}
+			if (result.size() == 0 && locatie.getValue().length() > 0)
+				return "Nu am nicio data despre " + locatie.getValue();
+		}else{
+			for (WeatherData wd : weatherDatas) 
+				result.add(wd);
 		}
 		
 		if (timp.getBegin().get(Calendar.YEAR) != 1){
@@ -206,7 +213,10 @@ public class StatementEvaluator {
 				}
 			}
 			if (result.size() == 0)
-				retStr = "Nu";
+				if (locatie.getValue().length() <= 0)
+					return "Nu ai specificat locatia";
+				else
+					retStr = "Nu";
 		}
 		
 		

@@ -177,6 +177,7 @@ public class StatementEvaluator {
 		
 		
 		
+		
 		String retStr = "";
 		for (WeatherData weatherData : result) {
 			retStr = "Am gasit orasul ";
@@ -189,6 +190,8 @@ public class StatementEvaluator {
 		}
 		if (retStr.length() == 0)
 			retStr += "Fi putin mai explicit, te rog.";
+		
+		retStr += retStr + retStr;
 		return retStr;
 	}
 }

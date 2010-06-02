@@ -69,6 +69,7 @@ public class BotGUI extends javax.swing.JFrame {
 					chatTextArea.setPreferredSize(new java.awt.Dimension(538,
 							303));
 					chatTextArea.setEditable(false);
+					chatTextArea.setColumns(96);
 				}
 			}
 			{

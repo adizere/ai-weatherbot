@@ -62,17 +62,17 @@ public class BotGUI extends javax.swing.JFrame {
 			getContentPane().setLayout(thisLayout);
 			setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); 
 			{
-				//chatScrollPane = new JScrollPane();
-				//{
+				chatScrollPane = new JScrollPane();
+				{
 					chatTextArea = new JTextArea();
-					//chatScrollPane.setViewportView(chatTextArea);
+					chatScrollPane.setViewportView(chatTextArea);
 					chatTextArea.setPreferredSize(new java.awt.Dimension(538,
 							303));
 					chatTextArea.setEditable(false);
 					//chatTextArea.setColumns(96);
 					chatTextArea.setWrapStyleWord(true);
 					chatTextArea.setLineWrap(true);
-				//}
+				}
 			}
 			{
 				inputPanel = new JPanel();
@@ -117,14 +117,14 @@ public class BotGUI extends javax.swing.JFrame {
 					.addContainerGap().addComponent(imageLabel, 0, 180,
 							Short.MAX_VALUE).addPreferredGap(
 							LayoutStyle.ComponentPlacement.UNRELATED)
-					.addComponent(chatTextArea, 0, 313, Short.MAX_VALUE)
+					.addComponent(chatScrollPane, 0, 313, Short.MAX_VALUE)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
 					.addComponent(inputPanel, GroupLayout.PREFERRED_SIZE, 55,
 							GroupLayout.PREFERRED_SIZE).addContainerGap());
 			thisLayout.setHorizontalGroup(thisLayout.createSequentialGroup()
 					.addContainerGap().addGroup(
 							thisLayout.createParallelGroup().addComponent(
-									chatTextArea,
+									chatScrollPane,
 									GroupLayout.Alignment.LEADING, 0, 541,
 									Short.MAX_VALUE).addComponent(inputPanel,
 									GroupLayout.Alignment.LEADING, 0, 541,

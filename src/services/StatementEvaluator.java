@@ -59,15 +59,17 @@ public class StatementEvaluator {
 	 */
 	public List<Word> evaluateStatement(String st) {		/* tokenize by " " and "," */
 		
-		st.replaceAll("\\?", "");
+		String noPunctuation = st.replaceAll("(\\p{P})", "");
+		/*
+		st.replaceAll("\\?", "");		
 		st.replaceAll("!", "");
 		st.replaceAll("\\.", "");
 		st.replaceAll(",", "");
-		
+		*/
 
 		List<Word> list = new ArrayList<Word>();
 
-		String s[] = st.split("[\\s,]");		
+		String s[] = noPunctuation.split("[\\s,]");		
 		Word w;
 		for (int i = 0; i < s.length; i++) {
 			if (s[i].length() > 0) {

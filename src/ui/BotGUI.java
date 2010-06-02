@@ -70,6 +70,8 @@ public class BotGUI extends javax.swing.JFrame {
 							303));
 					chatTextArea.setEditable(false);
 					//chatTextArea.setColumns(96);
+					chatTextArea.setWrapStyleWord(true);
+					chatTextArea.setLineWrap(true);
 				//}
 			}
 			{

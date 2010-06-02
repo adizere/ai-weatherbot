@@ -1,7 +1,7 @@
 package model;
 
 public class Variable implements Comparable<Variable>{
-	
+
 	private long id;
 	
 	private String name;	

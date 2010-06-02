@@ -1,6 +1,7 @@
 package repository;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 
@@ -43,18 +44,24 @@ public class WeatherDataRepository {
 			
 			for (int i=0; i<list.size(); i++){
 
-				List<Label> listLabel = lr.getList();
+				List<Label> listLabel = new ArrayList<Label>();
+				listLabel = lr.getList();
 				
 				for (int j=0; j<listLabel.size(); j++){
-					if (listLabel.get(j).getId() == list.get(i).getLabel_id()){
-						if (list.get(i).getLabel() == null)
-							list.get(i).setLabel(listLabel.get(j));
+					Label label = listLabel.get(j);
+					
+					if (label != null && label.getId() == list.get(i).getLabel_id()){
+						if (list.get(i).getLabel() == null){
+							list.get(i).setLabel(label);
+							listLabel.set(j, null);
+						}						
 						else{
 							weatherData = new WeatherData(list.get(i));
-							weatherData.setLabel(listLabel.get(j));
+							weatherData.setLabel(label);
+							listLabel.set(j, null);
 							secondaryList.add(weatherData);
 						}
-					}
+					}	
 				}
 			}
 			

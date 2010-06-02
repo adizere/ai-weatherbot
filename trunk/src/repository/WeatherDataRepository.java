@@ -37,11 +37,31 @@ public class WeatherDataRepository {
 			Criteria criteria = session.createCriteria(WeatherData.class);
 			list = criteria.list();
 
+			
+			List<WeatherData> secondaryList = new ArrayList<WeatherData>();
+			WeatherData weatherData;
+			
 			for (int i=0; i<list.size(); i++){
-				Label l = lr.findByID(list.get(i).getLabel_id());
-				if (l != null)
-					list.get(i).setLabel(l);
+
+				List<Label> listLabel = lr.getList();
 				
+				for (int j=0; j<listLabel.size(); j++){
+					if (listLabel.get(j).getId() == list.get(i).getLabel_id()){
+						if (list.get(i).getLabel() == null)
+							list.get(i).setLabel(listLabel.get(j));
+						else{
+							weatherData = new WeatherData(list.get(i));
+							weatherData.setLabel(listLabel.get(j));
+							secondaryList.add(weatherData);
+						}
+					}
+				}
+			}
+			
+			for (int i=0; i<secondaryList.size(); i++)
+				list.add(secondaryList.get(i));
+			
+			for (int i = 0; i < list.size(); i++) {
 				Timeline t = tr.findByID(list.get(i).getTimeline_id());
 				if (t != null)
 					list.get(i).setTimeline(t);

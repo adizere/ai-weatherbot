@@ -69,7 +69,7 @@ public class BotGUI extends javax.swing.JFrame {
 					chatTextArea.setPreferredSize(new java.awt.Dimension(538,
 							303));
 					chatTextArea.setEditable(false);
-					chatTextArea.setColumns(96);
+					//chatTextArea.setColumns(96);
 				}
 			}
 			{
@@ -131,6 +131,7 @@ public class BotGUI extends javax.swing.JFrame {
 									Short.MAX_VALUE)).addContainerGap());
 			pack();
 			this.setSize(581, 634);
+			this.setResizable(false);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -66,7 +66,10 @@ public class BotGUI extends javax.swing.JFrame {
 				{
 					chatTextArea = new JTextArea();
 					chatScrollPane.setViewportView(chatTextArea);
-					chatTextArea.setPreferredSize(new java.awt.Dimension(538,
+					chatScrollPane.setVerticalScrollBarPolicy(
+							JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+
+					chatScrollPane.setPreferredSize(new java.awt.Dimension(538,
 							303));
 					chatTextArea.setEditable(false);
 					//chatTextArea.setColumns(96);
@@ -133,6 +136,7 @@ public class BotGUI extends javax.swing.JFrame {
 									Short.MAX_VALUE)).addContainerGap());
 			pack();
 			this.setSize(581, 634);
+			this.setLocation(50, 50);
 			this.setResizable(false);
 		} catch (Exception e) {
 			e.printStackTrace();

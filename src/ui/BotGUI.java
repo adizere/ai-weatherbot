@@ -66,11 +66,9 @@ public class BotGUI extends javax.swing.JFrame {
 				{
 					chatTextArea = new JTextArea();
 					chatScrollPane.setViewportView(chatTextArea);
-					chatScrollPane.setVerticalScrollBarPolicy(
-							JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+					//chatScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 
-					chatScrollPane.setPreferredSize(new java.awt.Dimension(538,
-							303));
+					chatScrollPane.setPreferredSize(new java.awt.Dimension(538,303));
 					chatTextArea.setEditable(false);
 					//chatTextArea.setColumns(96);
 					chatTextArea.setWrapStyleWord(true);

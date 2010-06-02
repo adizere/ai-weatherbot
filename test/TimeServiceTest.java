@@ -4,7 +4,7 @@ import model.Timeline;
 
 import services.TimeService;
 import junit.framework.TestCase;
-
+import java.util.regex.*;
 
 public class TimeServiceTest extends TestCase {
 
@@ -23,7 +23,10 @@ public class TimeServiceTest extends TestCase {
 		System.out.println(Timeline.displayCalendar(ts.getTimeline().getBegin()));
 		System.out.println(Timeline.displayCalendar(ts.getTimeline().getEnd()));
 		System.out.println();
-		assertTrue(ts.getTimeline().equals(tl));
+		String s = new String("Hello!? . ,  ' ! ? ! ?!");
+		String p = s.replaceAll("(\\p{P})", " ");//("Hello!?!?!?!", "[?!]", "");
+		System.out.println("Stringul: " + s + p);
+		assertTrue(ts.getTimeline().equals(tl));		
 
 	}
 

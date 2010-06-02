@@ -110,7 +110,7 @@ public class StatementEvaluator {
 											 * datele de la locatiile respective
 											 */
 			else if (words.get(i).getValue().equals("cum")) {
-
+				variabila.setValue("oricum");
 			} else if (words.get(i).getValue().equals("cand")) {
 				tRef = anyTime;
 			}
@@ -177,23 +177,32 @@ public class StatementEvaluator {
 			}
 		}
 		
+		if (variabila.getValue().length() > 0 && !variabila.getValue().equals("oricum")){
+			Iterator<WeatherData> it = result.iterator();
+			while (it.hasNext()){
+				WeatherData wData = it.next();
+				if (!wData.getLabel().getVariable().getName().equals(variabila.getValue()))
+					it.remove();
+			}
+		}
+			
 		
 		
 		
 		String retStr = "";
 		for (WeatherData weatherData : result) {
-			retStr = "Am gasit orasul ";
+			retStr += "Am gasit orasul ";
 			retStr += weatherData.getLocation();
 			retStr += " pe perioada ";
 			retStr += weatherData.getTimeline().toString() + " ";
 			retStr += weatherData.getLabel().getVariable().getName();
 			retStr += " intre ";
 			retStr += weatherData.getLabel().getValue().getLowerBound() + " si " +weatherData.getLabel().getValue().getUpperBound(); 
+			retStr += "\n";
 		}
 		if (retStr.length() == 0)
 			retStr += "Fi putin mai explicit, te rog.";
 		
-		retStr += retStr + retStr;
 		return retStr;
 	}
 }

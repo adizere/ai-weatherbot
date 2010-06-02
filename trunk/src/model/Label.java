@@ -42,6 +42,12 @@ public class Label {
 		this.id = 0;
 	}
 
+	public Label(Object[] row) {
+		setId(Long.parseLong(row[0].toString()));
+		setVariable_id(Long.parseLong(row[1].toString()));
+		setValue_id(Long.parseLong(row[2].toString()));
+	}
+
 	public Variable getVariable() {
 		return variable;
 	}

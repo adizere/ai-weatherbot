@@ -180,4 +180,19 @@ public class TimeService {
 		t.getBegin().set(Calendar.YEAR, 0);
 	}
 	
+	public static String getVerb(Timeline tl){
+		String before = new String(" a fost ");
+		String now = new String(" este ");
+		String after = new String(" va fi ");
+		Calendar cNow = Calendar.getInstance();
+		if (tl.getEnd().before(cNow)){
+			return before;
+		}
+		if (tl.getBegin().after(cNow)){
+			return after;
+		}
+		if(tl.getBegin().before(cNow) && tl.getEnd().after(cNow))
+			return now;
+		return "";
+	}
 }

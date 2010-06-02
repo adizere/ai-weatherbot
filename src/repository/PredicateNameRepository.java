@@ -17,6 +17,7 @@ public class PredicateNameRepository {
 	private List<PredicateName> list = new ArrayList<PredicateName>();
 	private Session session;
 	
+	@SuppressWarnings("unchecked")
 	public PredicateNameRepository() {
 		session = null;
 		SessionFactory sessionFactory = new Configuration().configure()

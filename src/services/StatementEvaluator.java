@@ -5,6 +5,8 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
+
 
 import model.*;
 import repository.DomainRepository;
@@ -185,11 +187,30 @@ public class StatementEvaluator {
 					it.remove();
 			}
 		}
-			
-		
-		
 		
 		String retStr = "";
+		Variable varPred;
+		Domain domPred;
+		if (pred != null && !pred.getName().equals("default")){
+			Iterator<WeatherData> it = result.iterator();
+			while (it.hasNext()){
+				WeatherData wData = it.next();
+				Set<Variable> sv = pred.keySet();
+				Iterator<Variable> itv = sv.iterator();
+				while (itv.hasNext()){
+					varPred = itv.next();
+					domPred = pred.get(varPred);
+					
+					if (!wData.getLabel().getVariable().getName().equals(varPred.getName()) || !domPred.covers(wData.getLabel().getValue()))
+							it.remove();
+				}
+			}
+			if (result.size() == 0)
+				retStr = "Nu";
+		}
+		
+		
+
 		for (WeatherData weatherData : result) {
 			retStr += "Am gasit orasul ";
 			retStr += weatherData.getLocation();

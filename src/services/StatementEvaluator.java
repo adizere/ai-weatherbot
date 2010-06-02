@@ -59,7 +59,7 @@ public class StatementEvaluator {
 	 */
 	public List<Word> evaluateStatement(String st) {		/* tokenize by " " and "," */
 		
-		String noPunctuation = st.replaceAll("(\\p{P})", "");
+		String noPunctuation = st.replaceAll("[?!.,':;]", "");
 		/*
 		st.replaceAll("\\?", "");		
 		st.replaceAll("!", "");

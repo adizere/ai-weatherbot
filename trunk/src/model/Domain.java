@@ -85,5 +85,10 @@ public class Domain {
 	public String toString() {
 		return "#"+this.id + "<" + this.lowerBound + ", "  +this.upperBound + ">";
 	}
+	public boolean covers(Domain value) {
+		if (this.getLowerBound() <= value.getLowerBound() && this.upperBound >= value.getUpperBound())
+			return true;
+		return false;
+	}
 	
 }

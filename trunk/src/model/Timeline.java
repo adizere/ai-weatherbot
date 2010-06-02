@@ -101,7 +101,7 @@ public class Timeline {
 	public String toString() {
 		String timeB = this.displayCalendar(begin);
 		String timeE = this.displayCalendar(end);
-		return "[begin=" + timeB + ", end=" + timeE + "]";
+		return "[" + timeB + ", " + timeE + "]";
 	}
 	
 	@Override

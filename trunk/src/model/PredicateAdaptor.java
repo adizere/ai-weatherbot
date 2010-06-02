@@ -32,9 +32,9 @@ public class PredicateAdaptor {
 	public PredicateAdaptor(Object[] obj){
 		super();
 		this.id =(Long) obj[0];
-		this.predicate_id =(Long) obj[1];
-		this.variable_id = (Long) obj[2];
-		this.domain_id = (Long) obj[3];
+		this.predicate_id =(Long) obj[3];
+		this.variable_id = (Long) obj[1];
+		this.domain_id = (Long) obj[2];
 	}
 	
 	public long getId() {
